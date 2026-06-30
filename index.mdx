@@ -1,0 +1,45 @@
+---
+title: "Introduction"
+description: "Commit+ is a fast, native, open-source Git client for macOS. Zero external dependencies."
+---
+
+# Introduction
+
+**Commit+** is a native macOS Git client built with Swift and SwiftUI. Zero external dependencies — Git is driven via `Process()` subprocess.
+
+## Why Commit+
+
+macOS Git clients today fall into three groups:
+
+- **Command line** — powerful but requires memorizing dozens of commands and flags.
+- **Electron-based** — SourceTree, GitKraken, Fork. Cross-platform but not native: slow to start, heavy on memory, inconsistent with macOS conventions.
+- **Proprietary** — Tower. Polished and native, but paid and closed source.
+
+Commit+ is the missing fourth: **native, lightweight, and open source**.
+
+## Highlights
+
+<CardGroup cols={2}>
+  <Card title="Drag & Drop" icon="hand" href="/features/drag-and-drop">
+    Reorder/squash commits, cherry-pick, merge, push, and stage — all by dragging.
+  </Card>
+  <Card title="Undo Any Action" icon="undo-2" href="/features/undo-any-action">
+    Tower-style undo/redo for every Git action. Cmd+Z to undo, Cmd+Shift+Z to redo.
+  </Card>
+  <Card title="Conflict Resolution" icon="git-merge" href="/features/conflict-resolution">
+    Visual diff viewer with inline conflict markers and stage resolution.
+  </Card>
+  <Card title="Worktrees" icon="git-branch" href="/features/worktrees">
+    Create, switch, and remove git worktrees visually from the sidebar.
+  </Card>
+</CardGroup>
+
+## System Requirements
+
+- **macOS**: 26.2+
+- **Xcode**: 26.2+ (to build from source)
+- **Git**: Installed on the system (Homebrew or Xcode Command Line Tools)
+
+## Next Steps
+
+Read the [Installation guide](/docs/installation) to build and run Commit+, or jump to [Keyboard Shortcuts](/docs/keyboard-shortcuts).

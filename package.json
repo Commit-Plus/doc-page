@@ -1,0 +1,12 @@
+{
+  "name": "commit-plus-docs",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Mintlify documentation site for Commit+ (macgit)",
+  "scripts": {
+    "dev": "mint dev",
+    "lint": "mint lint",
+    "broken-links": "mint broken-links"
+  },
+  "devDependencies": {}
+}

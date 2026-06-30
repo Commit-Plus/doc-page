@@ -1,0 +1,25 @@
+---
+title: "Undo & Redo"
+description: "Tower-style undo for every Git action in Commit+."
+---
+
+# Undo & Redo
+
+Commit+ records an undo entry after **every** successful Git action. Press `Cmd+Z` to undo, `Cmd+Shift+Z` to redo.
+
+## Supported actions
+
+- Stage / unstage (file, hunk, and line level)
+- Commit
+- Stash save / drop / apply / pop
+- Branch create / delete / rename / switch
+- Discard / remove (backed up in `.git/macgit/undo`)
+- Cherry-pick / revert / reset / merge / rebase
+- Remote actions (pull rollback, published branch removal)
+
+## How it works
+
+- An entry is registered **only after** the original Git action succeeds.
+- Every undo/redo refreshes repository state and posts a change notification.
+- Destructive inverses check an expected state before running; if the precondition fails, the entry is restored and an error is shown.
+- Undo stacks are **not** persisted across app launches.

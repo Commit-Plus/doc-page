@@ -1,0 +1,25 @@
+---
+title: "Undo Any Action"
+description: "Tower-style undo/redo for stage, commit, stash, branch, discard, and remote actions."
+---
+
+# Undo Any Action
+
+Commit+ provides Tower-style **undo/redo** for every Git action. Press `Cmd+Z` to undo, `Cmd+Shift+Z` to redo.
+
+## What's undoable
+
+- Stage / unstage (file, hunk, and line level)
+- Commits
+- Stash save / drop / apply / pop
+- Local branch actions (create, delete, rename, switch)
+- Discard / remove (backed up in `.git/macgit/undo`)
+- History actions: cherry-pick, revert, reset, merge, rebase
+- Remote actions: pull rollback, published branch removal
+
+## Guarantees
+
+- An undo entry is registered **only after** the original Git action succeeds.
+- Every undo/redo refreshes repository state and posts a change notification.
+- Destructive inverses verify the expected state before running; on a failed precondition the entry is restored and an error is shown.
+- Undo stacks are not persisted across app launches.

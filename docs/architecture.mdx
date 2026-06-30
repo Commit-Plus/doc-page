@@ -1,0 +1,42 @@
+---
+title: "Architecture"
+description: "How Commit+ is structured under the hood."
+---
+
+# Architecture
+
+Commit+ is a native SwiftUI app with **zero external dependencies**. Git is driven entirely via `Process()` subprocess calls.
+
+```
+macgit/
+├── App/                 # App entry point, AppState, ToolbarAction, menu/toolbar wiring
+├── Views/               # SwiftUI views (MainWindow, FileStatus, History, Search, Stashes, Common)
+├── Services/            # Git operations & business logic (GitStatusService + extensions)
+├── Models/              # Data models
+├── ViewModels/          # View models
+└── Resources/           # Assets
+```
+
+## Git operations
+
+All Git operations are centralized in `macgit/Services/GitStatusService*.swift`, split into `+Stage`, `+Commit`, `+Diff`, `+Branch`, `+Remote`, `+MergeStash`, `+Search`, and `+Status` extensions.
+
+## Undo engine
+
+The undo system lives in `macgit/Services/GitUndo*.swift`:
+
+- `GitUndoOperation` — describes a single undoable action.
+- `GitUndoEntryFactory` — builds inverse operations.
+- `GitUndoExecutor` — runs the inverse Git command.
+- `GitUndoManager` — maintains the undo/redo stacks.
+
+## Tech Stack
+
+| Technology | Detail |
+|-----------|--------|
+| Language | Swift 5.0 |
+| UI Framework | SwiftUI |
+| Platform | macOS 26.2+ |
+| Concurrency | Swift async/await, actor |
+| Git Engine | System Git via `Process()` subprocess |
+| Dependencies | **None** — 0 external dependencies |

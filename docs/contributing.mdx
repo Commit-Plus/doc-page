@@ -1,0 +1,28 @@
+---
+title: "Contributing"
+description: "How to build, test, and contribute to Commit+."
+---
+
+# Contributing
+
+Commit+ is open source under the AGPLv3. Contributions are welcome.
+
+## Build
+
+```bash
+xcodebuild -project macgit.xcodeproj -scheme macgit -destination 'platform=macOS' build
+```
+
+## Test
+
+```bash
+xcodebuild -project macgit.xcodeproj -scheme macgit -destination 'platform=macOS' test
+```
+
+Tests live in `macgitTests/` and use XCTest, creating real temporary Git repositories for integration tests.
+
+## Style
+
+- Follow existing Swift / SwiftUI conventions in the codebase.
+- Do not launch the app after building — verification is complete once `xcodebuild` succeeds and tests pass.
+- Never introduce external dependencies.

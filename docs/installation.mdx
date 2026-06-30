@@ -1,0 +1,52 @@
+---
+title: "Installation"
+description: "Build and run Commit+ from source on macOS."
+---
+
+# Installation
+
+Commit+ is distributed as source. Build it with Xcode or the command line.
+
+## Prerequisites
+
+- **macOS** 26.2 or later
+- **Xcode** 26.2 or later (includes the Swift toolchain)
+- **Git** on your system (`git --version`). Install via Homebrew or the Xcode Command Line Tools:
+
+  ```bash
+  xcode-select --install
+  ```
+
+## Build from the command line
+
+```bash
+# Clone
+git clone https://github.com/Tranthanh98/macgit.git commit-plus
+cd commit-plus
+
+# Debug build
+xcodebuild -project macgit.xcodeproj -scheme macgit -destination 'platform=macOS' build
+
+# Release build
+xcodebuild -project macgit.xcodeproj -scheme macgit -configuration Release -destination 'platform=macOS' build
+```
+
+## Run the built app
+
+```bash
+open $(ls -dt ~/Library/Developer/Xcode/DerivedData/macgit-*/Build/Products/Debug/Commit+.app | head -n 1)
+```
+
+## Build with Xcode
+
+```bash
+open macgit.xcodeproj
+```
+
+Then press `Cmd+R` to build and run.
+
+## Run tests
+
+```bash
+xcodebuild -project macgit.xcodeproj -scheme macgit -destination 'platform=macOS' test
+```

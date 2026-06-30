@@ -1,0 +1,68 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "Commit+",
+  "logo": {
+    "light": "/logo/light.png",
+    "dark": "/logo/dark.png"
+  },
+  "favicon": "/favicon.png",
+  "colors": {
+    "primary": "#0A84FF",
+    "light": "#4DA0FF",
+    "dark": "#0A84FF",
+    "anchors": { "from": "#0A84FF", "to": "#6CB7FF" }
+  },
+  "topbarLinks": [
+    { "name": "GitHub", "url": "https://github.com/Tranthanh98/macgit" }
+  ],
+  "topbarCtaButton": {
+    "name": "Download",
+    "url": "https://github.com/Tranthanh98/macgit/releases/latest"
+  },
+  "tabs": [
+    { "name": "Documentation", "url": "docs" },
+    { "name": "Features", "url": "features" }
+  ],
+  "anchors": [
+    { "name": "Documentation", "icon": "book", "url": "docs" },
+    { "name": "Features", "icon": "sparkles", "url": "features" }
+  ],
+  "navigation": [
+    {
+      "group": "Getting Started",
+      "pages": ["introduction", "docs/installation", "docs/keyboard-shortcuts"]
+    },
+    {
+      "group": "Git Management",
+      "pages": [
+        "docs/commit",
+        "docs/push-pull-fetch",
+        "docs/branch-merge-rebase",
+        "docs/stash",
+        "docs/cherry-pick-revert",
+        "docs/conflict-resolution"
+      ]
+    },
+    {
+      "group": "Tools",
+      "pages": ["docs/undo-redo", "docs/worktrees", "docs/search"]
+    },
+    {
+      "group": "Project",
+      "pages": ["docs/architecture", "docs/contributing"]
+    },
+    {
+      "group": "Features",
+      "pages": [
+        "features/drag-and-drop",
+        "features/undo-any-action",
+        "features/conflict-resolution",
+        "features/worktrees",
+        "features/ai-features"
+      ]
+    }
+  ],
+  "footerSocials": {
+    "github": "https://github.com/Tranthanh98/macgit"
+  }
+}

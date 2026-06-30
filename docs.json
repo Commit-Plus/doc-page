@@ -1,0 +1,119 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Commit+",
+  "colors": {
+    "primary": "#0A84FF",
+    "light": "#4DA0FF",
+    "dark": "#0A84FF"
+  },
+  "favicon": "/favicon.svg",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "anchors": [
+          {
+            "anchor": "Documentation",
+            "icon": "book-open",
+            "groups": [
+              {
+                "group": "Getting Started",
+                "pages": [
+                  "introduction"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Documentation",
+        "anchors": [
+          {
+            "anchor": "Documentation",
+            "icon": "book",
+            "groups": [
+              {
+                "group": "Getting Started",
+                "pages": [
+                  "docs/installation",
+                  "docs/keyboard-shortcuts"
+                ]
+              },
+              {
+                "group": "Git Management",
+                "pages": [
+                  "docs/commit",
+                  "docs/push-pull-fetch",
+                  "docs/branch-merge-rebase",
+                  "docs/stash",
+                  "docs/cherry-pick-revert",
+                  "docs/conflict-resolution"
+                ]
+              },
+              {
+                "group": "Tools",
+                "pages": [
+                  "docs/undo-redo",
+                  "docs/worktrees",
+                  "docs/search"
+                ]
+              },
+              {
+                "group": "Project",
+                "pages": [
+                  "docs/architecture",
+                  "docs/contributing"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Features",
+        "anchors": [
+          {
+            "anchor": "Features",
+            "icon": "sparkles",
+            "groups": [
+              {
+                "group": "Features",
+                "pages": [
+                  "features/drag-and-drop",
+                  "features/undo-any-action",
+                  "features/conflict-resolution",
+                  "features/worktrees",
+                  "features/ai-features"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "GitHub",
+        "href": "https://github.com/Tranthanh98/macgit"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Download",
+      "href": "https://github.com/Tranthanh98/macgit/releases/latest"
+    }
+  },
+  "footer": {
+    "socials": {
+      "github": "https://github.com/Tranthanh98/macgit"
+    }
+  }
+}
