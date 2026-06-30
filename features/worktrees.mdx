@@ -1,20 +1,27 @@
 ---
-title: "Worktrees"
-description: "Manage git worktrees visually from the sidebar."
+title: "Worktree Workflow"
+description: "Coming soon: guided worktree workflows for feature branches and task cleanup."
 ---
 
-# Smarter Worktree Management
+<Card title="Coming soon" icon="folder-tree">
+  Worktree Workflow is planned as a guided layer on top of Commit+'s existing worktree management.
+</Card>
 
-Manage **git worktrees** visually from the sidebar for isolated parallel feature work. Keep your main checkout untouched while you work on something else.
+Commit+ already supports visual worktree management in the sidebar. The workflow layer is the next step: helping you start a task, keep it synced, finish it cleanly, and avoid branch cleanup mistakes.
 
-## Available now
+## Planned workflow
 
-- **List** worktrees with branch, path, lock, and dirty-state context.
-- **Open** a worktree in a new Commit+ window or in Terminal.
-- **Create** and **remove** worktrees from the sidebar.
-- **Lock**, **unlock**, **prune**, and **move** worktrees.
-- **Check out** branches inside a worktree.
+- Start a feature from a chosen parent branch.
+- Create or reuse a worktree for that task.
+- Show when the parent branch has moved and suggest syncing before finish.
+- Pick a finish strategy such as merge, squash, or rebase.
+- Warn before finishing when conflicts are likely.
+- Merge, tag, prune, or clean up the task branch/worktree after confirmation.
 
-## Why it matters
+## Inspiration
 
-Worktrees make parallel feature work safer. You can keep one checkout on the main branch, open another checkout for a risky change, and move between them without stashing or repeatedly switching the same working directory.
+Tower's Workflows feature frames task work around branch parents, workflow presets, sync checks, finish behavior, and merge strategy. Commit+'s version should keep that spirit but make it native to worktrees: one task, one isolated checkout, and a clear finish path.
+
+## Available today
+
+For current worktree management, see [Worktrees](/docs/worktrees).

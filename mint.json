@@ -20,12 +20,10 @@
     "url": "https://github.com/Tranthanh98/macgit/releases/latest"
   },
   "tabs": [
-    { "name": "Documentation", "url": "introduction" },
-    { "name": "Features", "url": "features" }
+    { "name": "Documentation", "url": "introduction" }
   ],
   "anchors": [
-    { "name": "Documentation", "icon": "book", "url": "introduction" },
-    { "name": "Features", "icon": "sparkles", "url": "features" }
+    { "name": "Documentation", "icon": "book", "url": "introduction" }
   ],
   "navigation": [
     {
@@ -33,19 +31,25 @@
       "pages": ["introduction", "docs/installation", "docs/keyboard-shortcuts"]
     },
     {
-      "group": "Git Management",
+      "group": "Polished Features",
+      "pages": [
+        "features/undo-any-action",
+        "features/drag-and-drop",
+        "features/ai-features",
+        "features/worktrees",
+        "features/conflict-resolution"
+      ]
+    },
+    {
+      "group": "Reference",
       "pages": [
         "docs/commit",
         "docs/push-pull-fetch",
         "docs/branch-merge-rebase",
         "docs/stash",
         "docs/cherry-pick-revert",
-        "docs/conflict-resolution"
+        "docs/search"
       ]
-    },
-    {
-      "group": "Tools",
-      "pages": ["docs/undo-redo", "docs/worktrees", "docs/search"]
     },
     {
       "group": "Project",
@@ -54,16 +58,6 @@
     {
       "group": "Local Development",
       "pages": ["docs/local-development", "docs/contributing"]
-    },
-    {
-      "group": "Features",
-      "pages": [
-        "features/drag-and-drop",
-        "features/undo-any-action",
-        "features/conflict-resolution",
-        "features/worktrees",
-        "features/ai-features"
-      ]
     }
   ],
   "footerSocials": {

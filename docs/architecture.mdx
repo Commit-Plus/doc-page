@@ -3,8 +3,6 @@ title: "Architecture"
 description: "How Commit+ is structured under the hood."
 ---
 
-# Architecture
-
 Commit+ is a native SwiftUI app. The Git client core is intentionally small: repository operations are driven through the system Git binary via `Process()` subprocess calls, and the UI is built with SwiftUI.
 
 ```

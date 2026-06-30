@@ -1,16 +1,56 @@
 ---
-title: "Drag & Drop"
-description: "Powerful Git actions by dragging commits, branches, files, and stashes."
+title: "Drag and Drop"
+description: "Current and planned Git actions by dragging commits, branches, files, and stashes."
 ---
-
-# Drag & Drop
 
 Commit+ is being built toward a direct manipulation model for Git: drag the thing you want to act on, drop it where the action should happen, confirm, and let the app keep the repository state visible.
 
-## Available now
+## Drag to cherry-pick
 
-- Drag selected commit(s) onto the current branch to cherry-pick them.
-- Drag one commit onto the Branches header to create a branch from that commit.
+<video
+  src="/showcase/drag-commit-cherry-pick.mp4"
+  autoPlay
+  muted
+  loop
+  playsInline
+  preload="auto"
+  disablePictureInPicture
+  aria-label="Drag commit cherry pick"
+  style={{
+    width: "100%",
+    aspectRatio: "2500 / 1156",
+    borderRadius: "8px",
+    display: "block",
+    backgroundColor: "#f3f4f6",
+  }}
+></video>
+
+Drag selected commit(s) onto the current branch to cherry-pick them. This is the fastest direct-manipulation flow currently available in the page.
+
+## Drag to create a new branch
+
+<video
+  src="/showcase/drag-to-create-new-branch.mp4"
+  autoPlay
+  muted
+  loop
+  playsInline
+  preload="auto"
+  disablePictureInPicture
+  aria-label="Drag to create new branch"
+  style={{
+    width: "100%",
+    aspectRatio: "2498 / 1428",
+    borderRadius: "8px",
+    display: "block",
+    backgroundColor: "#f3f4f6",
+  }}
+></video>
+
+Drag one commit onto the Branches header to create a branch from that commit. This keeps the history action visual and avoids dropping into a separate modal first.
+
+## Also available now
+
 - Drag a branch onto the current branch to merge it.
 - Hold `⌥` while dragging a branch onto the current branch to rebase instead.
 - Drag a branch onto the Branches header to create a branch from that branch.

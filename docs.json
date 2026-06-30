@@ -7,7 +7,7 @@
     "light": "#4DA0FF",
     "dark": "#0A84FF"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/favicon.png",
   "navigation": {
     "tabs": [
       {
@@ -26,21 +26,23 @@
                 ]
               },
               {
-                "group": "Git Management",
+                "group": "Polished Features",
+                "pages": [
+                  "features/undo-any-action",
+                  "features/drag-and-drop",
+                  "features/ai-features",
+                  "features/worktrees",
+                  "features/conflict-resolution"
+                ]
+              },
+              {
+                "group": "Reference",
                 "pages": [
                   "docs/commit",
                   "docs/push-pull-fetch",
                   "docs/branch-merge-rebase",
                   "docs/stash",
                   "docs/cherry-pick-revert",
-                  "docs/conflict-resolution"
-                ]
-              },
-              {
-                "group": "Tools",
-                "pages": [
-                  "docs/undo-redo",
-                  "docs/worktrees",
                   "docs/search"
                 ]
               },
@@ -60,33 +62,12 @@
             ]
           }
         ]
-      },
-      {
-        "tab": "Features",
-        "anchors": [
-          {
-            "anchor": "Features",
-            "icon": "sparkles",
-            "groups": [
-              {
-                "group": "Features",
-                "pages": [
-                  "features/drag-and-drop",
-                  "features/undo-any-action",
-                  "features/conflict-resolution",
-                  "features/worktrees",
-                  "features/ai-features"
-                ]
-              }
-            ]
-          }
-        ]
       }
     ]
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/logo/light.png",
+    "dark": "/logo/dark.png"
   },
   "navbar": {
     "links": [
