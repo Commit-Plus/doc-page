@@ -15,28 +15,12 @@
         "anchors": [
           {
             "anchor": "Documentation",
-            "icon": "book-open",
-            "groups": [
-              {
-                "group": "Getting Started",
-                "pages": [
-                  "introduction"
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Documentation",
-        "anchors": [
-          {
-            "anchor": "Documentation",
             "icon": "book",
             "groups": [
               {
                 "group": "Getting Started",
                 "pages": [
+                  "introduction",
                   "docs/installation",
                   "docs/keyboard-shortcuts"
                 ]
@@ -63,7 +47,13 @@
               {
                 "group": "Project",
                 "pages": [
-                  "docs/architecture",
+                  "docs/architecture"
+                ]
+              },
+              {
+                "group": "Local Development",
+                "pages": [
+                  "docs/local-development",
                   "docs/contributing"
                 ]
               }

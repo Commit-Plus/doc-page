@@ -5,22 +5,21 @@ description: "Powerful Git actions by dragging commits, branches, files, and sta
 
 # Drag & Drop
 
-Complex Git actions become effortless with drag and drop in Commit+.
+Commit+ is being built toward a direct manipulation model for Git: drag the thing you want to act on, drop it where the action should happen, confirm, and let the app keep the repository state visible.
 
-## Commits
+## Available now
 
-- **Reorder / Squash / Fixup** — drag commits in the history view to launch an interactive rebase.
-- **Cherry-Pick** — drag a commit from one branch to another.
-- **Revert** — hold `⌥` while dragging a commit to revert it.
+- Drag selected commit(s) onto the current branch to cherry-pick them.
+- Drag one commit onto the Branches header to create a branch from that commit.
+- Drag a branch onto the current branch to merge it.
+- Hold `⌥` while dragging a branch onto the current branch to rebase instead.
+- Drag a branch onto the Branches header to create a branch from that branch.
 
-## Branches
+## Roadmap direction
 
-- **Merge** — drag a branch onto HEAD.
-- **Rebase** — hold `⌥` while dragging a branch onto HEAD.
-- **Publish / Pull** — drag a branch to/from the remote section of the sidebar.
+- Reorder, squash, and fixup commits with direct history manipulation.
+- Revert commits with a drag modifier.
+- Publish and pull branches through remote drop targets.
+- Stage, unstage, stash, and apply files through file and stash drop targets.
 
-## Files & Stashes
-
-- **Stage / Unstage** — drag files between working copy and staged views.
-- **Stash files** — drag files to the stash view.
-- **Apply** — drag a stash or individual file back to the working copy.
+These broader workflows remain product direction until their drop targets are exposed and tested in the app.

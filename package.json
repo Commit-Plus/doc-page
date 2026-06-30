@@ -5,7 +5,7 @@
   "description": "Mintlify documentation site for Commit+ (macgit)",
   "scripts": {
     "dev": "mint dev",
-    "lint": "mint lint",
+    "lint": "mint validate",
     "broken-links": "mint broken-links"
   },
   "devDependencies": {}

@@ -5,7 +5,7 @@ description: "How Commit+ is structured under the hood."
 
 # Architecture
 
-Commit+ is a native SwiftUI app with **zero external dependencies**. Git is driven entirely via `Process()` subprocess calls.
+Commit+ is a native SwiftUI app. The Git client core is intentionally small: repository operations are driven through the system Git binary via `Process()` subprocess calls, and the UI is built with SwiftUI.
 
 ```
 macgit/
@@ -21,14 +21,20 @@ macgit/
 
 All Git operations are centralized in `macgit/Services/GitStatusService*.swift`, split into `+Stage`, `+Commit`, `+Diff`, `+Branch`, `+Remote`, `+MergeStash`, `+Search`, and `+Status` extensions.
 
+## App updates
+
+Direct distribution builds use Sparkle for update checks and installation. Sparkle is isolated behind `AppUpdateController`, `AppUpdaterProtocol`, and `SparkleAppUpdater` so the app can keep update behavior testable and separate from Git operations.
+
+Sparkle does not collect repository data, user data, or analytics. It is only the lightweight update helper for releases outside the Mac App Store.
+
 ## Undo engine
 
 The undo system lives in `macgit/Services/GitUndo*.swift`:
 
-- `GitUndoOperation` — describes a single undoable action.
-- `GitUndoEntryFactory` — builds inverse operations.
-- `GitUndoExecutor` — runs the inverse Git command.
-- `GitUndoManager` — maintains the undo/redo stacks.
+- `GitUndoOperation` describes a single undoable action.
+- `GitUndoEntryFactory` builds inverse operations.
+- `GitUndoExecutor` runs the inverse Git command.
+- `GitUndoManager` maintains the undo/redo stacks.
 
 ## Tech Stack
 
@@ -39,4 +45,5 @@ The undo system lives in `macgit/Services/GitUndo*.swift`:
 | Platform | macOS 26.2+ |
 | Concurrency | Swift async/await, actor |
 | Git Engine | System Git via `Process()` subprocess |
-| Dependencies | **None** — 0 external dependencies |
+| Core Git Dependencies | **None** - Git workflows use system Git and native Swift code |
+| Update Helper | Sparkle for direct app updates |

@@ -5,7 +5,7 @@ description: "Tower-style undo/redo for stage, commit, stash, branch, discard, a
 
 # Undo Any Action
 
-Commit+ provides Tower-style **undo/redo** for every Git action. Press `Cmd+Z` to undo, `Cmd+Shift+Z` to redo.
+Commit+ provides Tower-style **undo/redo** for supported Git actions. Press `Cmd+Z` to undo, `Cmd+Shift+Z` to redo.
 
 ## What's undoable
 
@@ -23,3 +23,7 @@ Commit+ provides Tower-style **undo/redo** for every Git action. Press `Cmd+Z` t
 - Every undo/redo refreshes repository state and posts a change notification.
 - Destructive inverses verify the expected state before running; on a failed precondition the entry is restored and an error is shown.
 - Undo stacks are not persisted across app launches.
+
+## Product direction
+
+The long-term goal is that every meaningful mutating Git workflow in Commit+ either registers a safe undo entry or clearly explains why it cannot. The current implementation focuses on the action families listed above.

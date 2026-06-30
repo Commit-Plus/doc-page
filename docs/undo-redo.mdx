@@ -1,11 +1,11 @@
 ---
 title: "Undo & Redo"
-description: "Tower-style undo for every Git action in Commit+."
+description: "Tower-style undo for supported Git actions in Commit+."
 ---
 
 # Undo & Redo
 
-Commit+ records an undo entry after **every** successful Git action. Press `Cmd+Z` to undo, `Cmd+Shift+Z` to redo.
+Commit+ records undo entries for supported mutating Git actions after the original action succeeds. Press `Cmd+Z` to undo, `Cmd+Shift+Z` to redo.
 
 ## Supported actions
 
@@ -23,3 +23,7 @@ Commit+ records an undo entry after **every** successful Git action. Press `Cmd+
 - Every undo/redo refreshes repository state and posts a change notification.
 - Destructive inverses check an expected state before running; if the precondition fails, the entry is restored and an error is shown.
 - Undo stacks are **not** persisted across app launches.
+
+## Scope
+
+Undo is intentionally runtime-scoped. If you quit and reopen the app, the undo stack starts fresh. This keeps destructive rollback behavior tied to the current visible session instead of replaying stale repository state later.

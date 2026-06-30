@@ -1,45 +1,54 @@
 ---
-title: "Introduction"
-description: "Commit+ is a fast, native, open-source Git client for macOS. Zero external dependencies."
+title: "Commit+"
+description: "A fast, native, open-source Git client for macOS."
 ---
 
-# Introduction
+# Commit+
 
-**Commit+** is a native macOS Git client built with Swift and SwiftUI. Zero external dependencies — Git is driven via `Process()` subprocess.
+**Commit+** is a fast, native Git client for macOS, built with Swift and SwiftUI for developers who want a lightweight alternative to heavy cross-platform Git tools.
 
-## Why Commit+
+Git operations run through the system Git binary. The app focuses on native macOS performance, clear workflows, and an open-source codebase that contributors can inspect, build, and improve.
 
-macOS Git clients today fall into three groups:
-
-- **Command line** — powerful but requires memorizing dozens of commands and flags.
-- **Electron-based** — SourceTree, GitKraken, Fork. Cross-platform but not native: slow to start, heavy on memory, inconsistent with macOS conventions.
-- **Proprietary** — Tower. Polished and native, but paid and closed source.
-
-Commit+ is the missing fourth: **native, lightweight, and open source**.
-
-## Highlights
+## Available now
 
 <CardGroup cols={2}>
-  <Card title="Drag & Drop" icon="hand" href="/features/drag-and-drop">
-    Reorder/squash commits, cherry-pick, merge, push, and stage — all by dragging.
+  <Card title="Native Git Workflows" icon="git-branch" href="/docs/commit">
+    Stage files, stage hunks or selected lines, commit, branch, merge, rebase, stash, fetch, pull, and push from a native macOS interface.
   </Card>
-  <Card title="Undo Any Action" icon="undo-2" href="/features/undo-any-action">
-    Tower-style undo/redo for every Git action. Cmd+Z to undo, Cmd+Shift+Z to redo.
+  <Card title="Undo & Redo" icon="undo-2" href="/docs/undo-redo">
+    Undo supported Git actions with Cmd+Z, including staging, commits, stashes, branches, destructive file actions, history actions, and selected remote operations.
   </Card>
-  <Card title="Conflict Resolution" icon="git-merge" href="/features/conflict-resolution">
-    Visual diff viewer with inline conflict markers and stage resolution.
+  <Card title="Conflict Resolution" icon="git-merge" href="/docs/conflict-resolution">
+    Resolve merge, rebase, cherry-pick, and revert conflicts with inline conflict markers and per-hunk resolution controls.
   </Card>
-  <Card title="Worktrees" icon="git-branch" href="/features/worktrees">
-    Create, switch, and remove git worktrees visually from the sidebar.
+  <Card title="Worktrees" icon="folder-tree" href="/docs/worktrees">
+    List, open, create, remove, lock, prune, move, and check out Git worktrees from the sidebar.
   </Card>
 </CardGroup>
 
-## System Requirements
+## Designed for faster Git work
 
-- **macOS**: 26.2+
-- **Xcode**: 26.2+ (to build from source)
-- **Git**: Installed on the system (Homebrew or Xcode Command Line Tools)
+<CardGroup cols={2}>
+  <Card title="Drag & Drop Direction" icon="hand" href="/features/drag-and-drop">
+    Commit and branch drag workflows are available today, with broader file and stash drag workflows planned as the interaction model matures.
+  </Card>
+  <Card title="Quick Search" icon="search" href="/docs/search">
+    Use a Spotlight-style search modal to jump to commits, files, branches, and tags without leaving the keyboard.
+  </Card>
+  <Card title="Local Development" icon="code-2" href="/docs/local-development">
+    Clone the open-source project, build it with Xcode, run tests, and contribute changes.
+  </Card>
+  <Card title="AI Roadmap" icon="sparkles" href="/features/ai-features">
+    AI commit generation and assisted conflict resolution are planned, not shipped as part of the current app.
+  </Card>
+</CardGroup>
 
-## Next Steps
+## Lightweight by design
 
-Read the [Installation guide](/docs/installation) to build and run Commit+, or jump to [Keyboard Shortcuts](/docs/keyboard-shortcuts).
+Commit+ keeps the Git client core small: SwiftUI for the interface, system Git for repository operations, and no analytics or repository-data collection. Sparkle is used only as a lightweight app-update helper for direct distribution outside the Mac App Store.
+
+## Start here
+
+- Build the app from source with the [Installation guide](/docs/installation).
+- Learn the main commands in [Keyboard Shortcuts](/docs/keyboard-shortcuts).
+- Set up an open-source contributor environment in [Local Development](/docs/local-development).

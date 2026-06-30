@@ -1,45 +1,48 @@
 ---
 title: "Introduction"
-description: "Commit+ is a fast, native, open-source Git client for macOS. Zero external dependencies."
+description: "What Commit+ is, what it supports today, and where the product is heading."
 ---
 
 # Introduction
 
-**Commit+** is a native macOS Git client built with Swift and SwiftUI. Zero external dependencies — Git is driven via `Process()` subprocess.
+Commit+ is a native macOS Git client built with Swift and SwiftUI. It is designed for developers who want a fast, open-source Git app that feels at home on macOS without adopting a heavy cross-platform runtime.
 
 ## Why Commit+
 
-macOS Git clients today fall into three groups:
+Most Git workflows are still split between three trade-offs:
 
-- **Command line** — powerful but requires memorizing dozens of commands and flags.
-- **Electron-based** — SourceTree, GitKraken, Fork. Cross-platform but not native: slow to start, heavy on memory, inconsistent with macOS conventions.
-- **Proprietary** — Tower. Polished and native, but paid and closed source.
+- **Command line**: powerful, scriptable, and exact, but hard to scan visually.
+- **Cross-platform desktop clients**: convenient, but often heavier than a native macOS app needs to be.
+- **Polished proprietary clients**: pleasant to use, but closed source and paid.
 
-Commit+ is the missing fourth: **native, lightweight, and open source**.
+Commit+ aims for a fourth path: native, lightweight, open source, and comfortable for daily Git work.
 
-## Highlights
+## What is available now
 
-<CardGroup cols={2}>
-  <Card title="Drag & Drop" icon="hand" href="/features/drag-and-drop">
-    Reorder/squash commits, cherry-pick, merge, push, and stage — all by dragging.
-  </Card>
-  <Card title="Undo Any Action" icon="undo-2" href="/features/undo-any-action">
-    Tower-style undo/redo for every Git action. Cmd+Z to undo, Cmd+Shift+Z to redo.
-  </Card>
-  <Card title="Conflict Resolution" icon="git-merge" href="/features/conflict-resolution">
-    Visual diff viewer with inline conflict markers and stage resolution.
-  </Card>
-  <Card title="Worktrees" icon="git-branch" href="/features/worktrees">
-    Create, switch, and remove git worktrees visually from the sidebar.
-  </Card>
-</CardGroup>
+- Stage and unstage files, hunks, and selected lines.
+- Commit, branch, merge, rebase, stash, cherry-pick, revert, fetch, pull, and push.
+- Undo and redo supported Git actions with Cmd+Z and Cmd+Shift+Z.
+- Resolve conflicts in the app with inline conflict markers and per-hunk controls.
+- Manage Git worktrees from the sidebar.
+- Drag commits for cherry-pick and branch creation, and drag branches for merge or rebase onto the current branch.
+- Search commits, files, branches, and tags with a Spotlight-style modal.
 
-## System Requirements
+## Product direction
 
-- **macOS**: 26.2+
-- **Xcode**: 26.2+ (to build from source)
-- **Git**: Installed on the system (Homebrew or Xcode Command Line Tools)
+Commit+ is being built toward a more direct, visual Git workflow. Some of the broader ideas in the README and feature pages are product direction rather than a promise that every action is already shipped. Pages in this docs site call out planned behavior when a workflow is still on the roadmap.
 
-## Next Steps
+## Zero dependencies
 
-Read the [Installation guide](/docs/installation) to build and run Commit+, or jump to [Keyboard Shortcuts](/docs/keyboard-shortcuts).
+Commit+ keeps the Git client core intentionally small. Repository actions run through the system Git binary, and the UI is native SwiftUI. Sparkle is used only for app updates in direct distribution builds; it does not collect repository data, user data, or analytics.
+
+## System requirements
+
+- **macOS**: 26.2 or later
+- **Xcode**: 26.2 or later to build from source
+- **Git**: installed through Xcode Command Line Tools, Homebrew, or another system install
+
+## Next steps
+
+- Build and run the app in [Installation](/docs/installation).
+- Review the common commands in [Keyboard Shortcuts](/docs/keyboard-shortcuts).
+- Prepare an open-source development setup in [Local Development](/docs/local-development).

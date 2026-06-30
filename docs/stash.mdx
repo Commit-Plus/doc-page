@@ -7,11 +7,16 @@ description: "Save and apply stashes of uncommitted work."
 
 `Cmd+Shift+S` saves your working copy and staged changes into a new stash.
 
-## Drag & drop
+## Stash actions
 
-- Drag files **to the stash view** to stash only those files.
-- Drag a stash (or an individual file from a stash) **back to the working copy** to apply it.
+- Save a stash from the current working copy.
+- Drop stashes you no longer need.
+- Apply or pop a stash back into the working copy.
 
 ## Undo
 
 Stash save, drop, apply, and pop are all undoable with `Cmd+Z`. See [Undo Any Action](/features/undo-any-action).
+
+## Planned drag workflow
+
+File-to-stash and stash-to-working-copy drag workflows are part of the broader interaction direction. They should be treated as planned behavior until the app exposes them as supported drop targets.

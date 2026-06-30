@@ -5,14 +5,25 @@ description: "Manage git worktrees visually from the sidebar."
 
 # Worktrees
 
-Commit+ lets you create, switch, and remove **git worktrees** from the sidebar — perfect for isolated parallel feature work without leaving your main checkout behind.
+Commit+ lets you manage **git worktrees** from the sidebar, which is useful when you want isolated parallel feature work without disturbing your main checkout.
+
+## Available actions
+
+- List existing worktrees with branch, path, lock, and dirty-state context.
+- Open a worktree in a new Commit+ window.
+- Open a worktree path in Terminal.
+- Create and remove worktrees.
+- Lock and unlock worktrees.
+- Prune stale worktree metadata.
+- Move worktrees.
+- Check out branches in a worktree.
 
 ## Create a worktree
 
-1. Right-click a branch (or use the worktree section) and choose **New Worktree**.
-2. Pick a branch and a path.
-3. Commit+ creates the worktree and opens it in a new window.
+1. Open the worktree actions from the sidebar.
+2. Pick the branch and destination path.
+3. Commit+ runs the Git worktree operation and refreshes the sidebar after it succeeds.
 
-## Remove a worktree
+## Safety model
 
-Select a worktree in the sidebar and choose **Remove**. Commit+ cleans up the working tree and its metadata.
+The main worktree is listed but protected from destructive actions such as removal. Worktree labels live in Commit+ sidecar state under `.git/macgit/`, while Git operations remain responsible for the actual worktree changes.

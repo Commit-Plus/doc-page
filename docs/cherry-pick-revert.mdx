@@ -7,10 +7,14 @@ description: "Copy or revert commits across branches."
 
 ## Cherry-pick
 
-Drag a commit from one branch onto another to **cherry-pick** it. Commit+ applies the commit's changes onto the target branch.
+Use the history actions to cherry-pick a commit, or drag selected commit(s) onto the current branch. Commit+ applies the selected changes onto the target branch.
 
 ## Revert
 
-Hold `⌥` while dragging a commit to **revert** it — creating a new commit that undoes the original change.
+Use the history actions to revert a commit, creating a new commit that undoes the original change.
 
 Both actions register undo entries, so you can roll them back with `Cmd+Z`.
+
+## Planned drag workflow
+
+Option-drag revert and broader cross-branch commit drag workflows are part of the product direction. The current drag policy focuses on cherry-picking onto the current branch and creating branches from commits.

@@ -7,13 +7,17 @@ description: "How to build, test, and contribute to Commit+."
 
 Commit+ is open source under the AGPLv3. Contributions are welcome.
 
-## Build
+## Start here
+
+Use [Local Development](/docs/local-development) to set up the app, run the test suite, and preview the docs site.
+
+## Build the app
 
 ```bash
 xcodebuild -project macgit.xcodeproj -scheme macgit -destination 'platform=macOS' build
 ```
 
-## Test
+## Test the app
 
 ```bash
 xcodebuild -project macgit.xcodeproj -scheme macgit -destination 'platform=macOS' test
@@ -24,5 +28,17 @@ Tests live in `macgitTests/` and use XCTest, creating real temporary Git reposit
 ## Style
 
 - Follow existing Swift / SwiftUI conventions in the codebase.
-- Do not launch the app after building — verification is complete once `xcodebuild` succeeds and tests pass.
-- Never introduce external dependencies.
+- Keep changes focused and small enough to review.
+- Keep docs aligned with shipped behavior. Use roadmap or planned language for future work.
+- Preserve the lightweight Git core. Do not add runtime dependencies for Git workflows without a strong reason.
+- Treat Sparkle as update infrastructure only, not as part of the repository workflow engine.
+- Do not launch the app as a substitute for verification. Use `xcodebuild` build and test output as the baseline evidence.
+
+## Docs changes
+
+For docs-only changes in `docs-page/`:
+
+```bash
+npm run lint
+npm run broken-links
+```

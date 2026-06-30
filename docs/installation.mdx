@@ -5,7 +5,17 @@ description: "Build and run Commit+ from source on macOS."
 
 # Installation
 
-Commit+ is distributed as source. Build it with Xcode or the command line.
+You can download Commit+ from GitHub Releases or build it from source with Xcode.
+
+## Download a release
+
+Use the latest release from GitHub:
+
+```bash
+open https://github.com/Tranthanh98/macgit/releases/latest
+```
+
+Direct distribution builds use Sparkle for app updates outside the Mac App Store.
 
 ## Prerequisites
 
@@ -50,3 +60,5 @@ Then press `Cmd+R` to build and run.
 ```bash
 xcodebuild -project macgit.xcodeproj -scheme macgit -destination 'platform=macOS' test
 ```
+
+For contributor setup details, see [Local Development](/docs/local-development).

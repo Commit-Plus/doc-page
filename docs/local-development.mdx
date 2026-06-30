@@ -1,0 +1,88 @@
+---
+title: "Local Development"
+description: "Set up the open-source Commit+ project locally."
+---
+
+# Local Development
+
+This guide is for contributors who want to clone, build, test, or document Commit+ from source.
+
+## Prerequisites
+
+- macOS 26.2 or later
+- Xcode 26.2 or later
+- Git installed through Xcode Command Line Tools, Homebrew, or another system install
+- Mintlify CLI if you want to preview this docs site locally
+
+## Clone the app
+
+```bash
+git clone https://github.com/Tranthanh98/macgit.git
+cd macgit
+```
+
+## Build the app
+
+```bash
+xcodebuild -project macgit.xcodeproj -scheme macgit -destination 'platform=macOS' build
+```
+
+## Run the debug build
+
+```bash
+open $(ls -dt ~/Library/Developer/Xcode/DerivedData/macgit-*/Build/Products/Debug/Commit+.app | head -n 1)
+```
+
+You can also open the project in Xcode and press `Cmd+R`:
+
+```bash
+open macgit.xcodeproj
+```
+
+## Run tests
+
+```bash
+xcodebuild -project macgit.xcodeproj -scheme macgit -destination 'platform=macOS' test
+```
+
+The test suite uses XCTest and creates temporary Git repositories for integration coverage. Many features are verified against real `git` commands instead of mocked repository state.
+
+## Project structure
+
+```text
+macgit/
+├── macgit/
+│   ├── App/          # App entry point, global state, menus, toolbar actions
+│   ├── Services/     # Git operations, undo, worktrees, updates, persistence
+│   ├── ViewModels/   # View-specific state models
+│   ├── Views/        # SwiftUI screens and reusable view components
+│   └── Resources/    # App icons, colors, and bundled assets
+├── macgitTests/      # XCTest unit and integration tests
+├── docs/             # Engineering specs, plans, and release docs
+└── scripts/release/  # Direct distribution release helpers
+```
+
+## Docs site
+
+The Mintlify docs live outside the app repo in `docs-page/`.
+
+```bash
+cd docs-page
+npm run dev
+npm run lint
+npm run broken-links
+```
+
+`npm run lint` uses `mint validate` for the current Mintlify CLI.
+
+## App updates
+
+Commit+ uses Sparkle for direct app updates outside the Mac App Store. Sparkle is update infrastructure only: it does not power Git workflows, collect repository data, or add analytics. Release docs in the app repo cover signing, notarization, appcast generation, and end-to-end update checks.
+
+## Contribution loop
+
+1. Create a focused branch for one change.
+2. Keep UI copy and docs aligned with shipped behavior.
+3. Run focused tests for the touched feature.
+4. Run the full `xcodebuild ... test` command before claiming the app change is ready.
+5. For docs-only changes, run Mintlify validation and broken-link checks.

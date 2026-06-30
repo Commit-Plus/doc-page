@@ -20,14 +20,12 @@ description: "Every keyboard shortcut in Commit+."
 
 ## Drag modifiers
 
-| Modifier | Action |
-|----------|--------|
-| Drag commit(s) | Reorder / squash / fixup (interactive rebase) |
-| Drag commit between branches | Cherry-pick |
-| `⌥` + drag commit | Revert |
-| Drag branch onto HEAD | Merge |
-| `⌥` + drag branch onto HEAD | Rebase |
-| Drag branch to remote | Publish / pull |
-| Drag file to staged | Stage |
-| Drag file to stash | Stash |
-| Drag stash / file to working copy | Apply |
+| Gesture | Action |
+|---------|--------|
+| Drag commit(s) onto the current branch | Cherry-pick |
+| Drag one commit onto the Branches header | Create a branch from that commit |
+| Drag branch onto the current branch | Merge |
+| `⌥` + drag branch onto the current branch | Rebase |
+| Drag branch onto the Branches header | Create a branch from that branch |
+
+File, stash, remote, and commit-reorder drag workflows are part of the product direction, but they are not documented as shipped actions yet.
