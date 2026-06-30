@@ -20,10 +20,12 @@
     "url": "https://github.com/Tranthanh98/macgit/releases/latest"
   },
   "tabs": [
-    { "name": "Documentation", "url": "introduction" }
+    { "name": "Documentation", "url": "introduction" },
+    { "name": "Development", "url": "docs/local-development" }
   ],
   "anchors": [
-    { "name": "Documentation", "icon": "book", "url": "introduction" }
+    { "name": "Documentation", "icon": "book", "url": "introduction" },
+    { "name": "Development", "icon": "code-2", "url": "docs/local-development" }
   ],
   "navigation": [
     {
@@ -56,7 +58,7 @@
       "pages": ["docs/architecture"]
     },
     {
-      "group": "Local Development",
+      "group": "Setup",
       "pages": ["docs/local-development", "docs/contributing"]
     }
   ],

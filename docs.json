@@ -12,55 +12,58 @@
     "tabs": [
       {
         "tab": "Documentation",
-        "anchors": [
+        "root": "introduction",
+        "icon": "book",
+        "groups": [
           {
-            "anchor": "Documentation",
-            "icon": "book",
-            "groups": [
+            "group": "Getting Started",
+            "pages": [
+              "introduction",
+              "docs/installation",
+              "docs/keyboard-shortcuts"
+            ]
+          },
+          {
+            "group": "Polished Features",
+            "pages": [
+              "features/undo-any-action",
+              "features/drag-and-drop",
+              "features/ai-features",
+              "features/worktrees",
+              "features/conflict-resolution"
+            ]
+          },
+          {
+            "group": "Reference",
+            "pages": [
+              "docs/commit",
+              "docs/push-pull-fetch",
+              "docs/branch-merge-rebase",
+              "docs/stash",
+              "docs/cherry-pick-revert",
+              "docs/search"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Development",
+        "root": "docs/local-development",
+        "icon": "code-2",
+        "groups": [
+          {
+            "group": "Project",
+            "pages": [
+              "docs/architecture"
+            ]
+          },
               {
-                "group": "Getting Started",
-                "pages": [
-                  "introduction",
-                  "docs/installation",
-                  "docs/keyboard-shortcuts"
-                ]
-              },
-              {
-                "group": "Polished Features",
-                "pages": [
-                  "features/undo-any-action",
-                  "features/drag-and-drop",
-                  "features/ai-features",
-                  "features/worktrees",
-                  "features/conflict-resolution"
-                ]
-              },
-              {
-                "group": "Reference",
-                "pages": [
-                  "docs/commit",
-                  "docs/push-pull-fetch",
-                  "docs/branch-merge-rebase",
-                  "docs/stash",
-                  "docs/cherry-pick-revert",
-                  "docs/search"
-                ]
-              },
-              {
-                "group": "Project",
-                "pages": [
-                  "docs/architecture"
-                ]
-              },
-              {
-                "group": "Local Development",
+                "group": "Setup",
                 "pages": [
                   "docs/local-development",
                   "docs/contributing"
                 ]
               }
-            ]
-          }
         ]
       }
     ]
