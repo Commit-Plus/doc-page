@@ -27,17 +27,17 @@ Commit+ is being built toward a direct manipulation model for Git: drag the thin
 
 Drag selected commit(s) onto the current branch to cherry-pick them. This is the fastest direct-manipulation flow currently available in the page.
 
-## Drag to create a new branch
+## Drag a commit to create a branch
 
 <video
-  src="/showcase/drag-to-create-new-branch.mp4"
+  src="/showcase/drag-n-drop/drag-to-create-new-branch.mp4"
   autoPlay
   muted
   loop
   playsInline
   preload="auto"
   disablePictureInPicture
-  aria-label="Drag to create new branch"
+  aria-label="Drag a commit onto the Branches header to create a branch"
   style={{
     width: "100%",
     aspectRatio: "2498 / 1428",
@@ -47,19 +47,83 @@ Drag selected commit(s) onto the current branch to cherry-pick them. This is the
   }}
 ></video>
 
-Drag one commit onto the Branches header to create a branch from that commit. This keeps the history action visual and avoids dropping into a separate modal first.
+Drag one commit from the history graph onto the Branches header to create a new branch starting at that commit. This keeps the history action visual and avoids dropping into a separate modal first.
+
+## Drag a branch to create a branch
+
+<video
+  src="/showcase/drag-n-drop/drag-to-create-branch.mov"
+  autoPlay
+  muted
+  loop
+  playsInline
+  preload="auto"
+  disablePictureInPicture
+  aria-label="Drag a branch onto the Branches header to base a new branch on it"
+  style={{
+    width: "100%",
+    aspectRatio: "2500 / 1156",
+    borderRadius: "8px",
+    display: "block",
+    backgroundColor: "#f3f4f6",
+  }}
+></video>
+
+Drag an existing branch onto the Branches header to create a new branch based on it. The source branch acts as the base, so the new branch points at the same tip and inherits the history.
+
+## Drag to merge
+
+<video
+  src="/showcase/drag-n-drop/drag-to-merge.mov"
+  autoPlay
+  muted
+  loop
+  playsInline
+  preload="auto"
+  disablePictureInPicture
+  aria-label="Drag a branch onto the current branch to merge"
+  style={{
+    width: "100%",
+    aspectRatio: "2500 / 1156",
+    borderRadius: "8px",
+    display: "block",
+    backgroundColor: "#f3f4f6",
+  }}
+></video>
+
+Drag a branch onto the current branch to merge it. The drop target is the current branch itself, so you can see exactly which branch is being merged into before confirming.
+
+## Drag to push to origin
+
+<video
+  src="/showcase/drag-n-drop/drag-to-push-origin.mov"
+  autoPlay
+  muted
+  loop
+  playsInline
+  preload="auto"
+  disablePictureInPicture
+  aria-label="Drag a branch onto origin to push it"
+  style={{
+    width: "100%",
+    aspectRatio: "2500 / 1156",
+    borderRadius: "8px",
+    display: "block",
+    backgroundColor: "#f3f4f6",
+  }}
+></video>
+
+Drag a branch onto the origin remote to publish it. This turns pushing into a direct-manipulation action: the branch is the thing you move, the remote is the drop target.
 
 ## Also available now
 
-- Drag a branch onto the current branch to merge it.
-- Hold `⌥` while dragging a branch onto the current branch to rebase instead.
-- Drag a branch onto the Branches header to create a branch from that branch.
+- Hold `⌥` while dragging a branch onto the current branch to rebase instead of merge.
 
 ## Roadmap direction
 
 - Reorder, squash, and fixup commits with direct history manipulation.
 - Revert commits with a drag modifier.
-- Publish and pull branches through remote drop targets.
+- Pull branches through remote drop targets.
 - Stage, unstage, stash, and apply files through file and stash drop targets.
 
 These broader workflows remain product direction until their drop targets are exposed and tested in the app.
