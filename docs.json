@@ -48,6 +48,19 @@
         ]
       },
       {
+        "tab": "Changelog",
+        "root": "changelog/overview",
+        "icon": "rss",
+        "groups": [
+          {
+            "group": "Changelog",
+            "pages": [
+              "changelog/overview"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "Development",
         "root": "docs/local-development",
         "icon": "code-2",
