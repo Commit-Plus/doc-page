@@ -1,0 +1,39 @@
+---
+title: "Pull Requests"
+description: "Browse open pull requests for a connected repository without leaving Commit+."
+---
+
+Commit+ adds a read-only pull request view so you can see what is happening on the remote for the repository you are working on. The list stays focused: open PRs, their status, branches, author, and a quick way to open any of them in the provider's web interface.
+
+## What it shows
+
+When the selected repository uses a connected provider account, the Pull Requests view lists open pull requests for that remote:
+
+- **PR number and title** — scan quickly for the change you care about.
+- **Source and target branches** — see where a PR is coming from and going to.
+- **Author** — username and avatar, when available from the provider.
+- **State** — open, closed, merged, or draft.
+- **Last updated** — relative timestamp so you know how fresh the entry is.
+
+Each row also has an **Open in Browser** button that jumps directly to the pull request page on the provider's site.
+
+## How it works
+
+Pull Requests uses the provider account connected to the repository's remote:
+
+1. Select a repository with a supported remote and a connected provider account.
+2. Open the Pull Requests view from the main window.
+3. Commit+ fetches the current open PRs from the provider API and renders them using normalized models, so the UI stays independent of any single provider's response format.
+
+If no account is connected, or the token has expired, the view prompts you to **Connect Account** or **Reconnect** to continue.
+
+## Currently supported
+
+- GitHub repositories via a connected GitHub account.
+- Open PR listing with `GET /repos/{owner}/{repo}/pulls?state=open`.
+
+More providers and deeper PR workflows will follow as the provider account layer expands.
+
+## On the roadmap
+
+This is the read phase of pull request support. Future iterations will add create, review, and merge capabilities directly from Commit+.

@@ -30,7 +30,8 @@
               "features/drag-and-drop",
               "features/ai-features",
               "features/worktrees",
-              "features/conflict-resolution"
+              "features/conflict-resolution",
+              "features/pull-requests"
             ]
           },
           {
