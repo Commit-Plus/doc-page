@@ -1,26 +1,54 @@
 ---
-title: "AI Features"
-description: "Coming soon: AI commit generation and conflict resolution."
+title: "AI commit messages"
+description: "Generate editable Conventional Commit messages with Apple Intelligence on-device or your own OpenAI, Claude, or Gemini API key."
 ---
 
-AI features are coming soon. The first focus is practical Git assistance: better commit messages and safer conflict resolution, not a general chatbot bolted onto the app.
+Commit+ can turn the changes in your repository into a focused, editable Conventional Commit message. Choose an on-device model with Apple Intelligence, or bring your own API key for OpenAI, Claude, or Gemini.
 
 <CardGroup cols={2}>
-  <Card title="Generate commit message" icon="sparkles" badge="Coming soon">
-    Draft commit messages from your staged diff, with wording you can review and edit before committing.
+  <Card title="Apple Intelligence" icon="apple" badge="On-device">
+    Generate privately on a compatible Mac. Repository content stays on the device, and generation can work offline.
   </Card>
 
-  <Card title="Suggest conflict resolution" icon="git-merge" badge="Coming soon">
-    Suggest merge-conflict resolutions while keeping the final choice visible and user-controlled.
+  <Card title="OpenAI" icon="cloud" badge="BYOK">
+    Generate with GPT-4o mini using an OpenAI API key stored in your Mac's Keychain.
+  </Card>
+
+  <Card title="Claude" icon="cloud" badge="BYOK">
+    Generate with Claude Haiku 4.5 using an Anthropic API key stored in your Mac's Keychain.
+  </Card>
+
+  <Card title="Gemini" icon="cloud" badge="BYOK">
+    Generate with Gemini 3.5 Flash-Lite using a Google AI API key stored in your Mac's Keychain.
   </Card>
 </CardGroup>
 
-## Scope
+## Generate a commit message
 
-- Commit-message generation should work from the staged diff.
-- Conflict suggestions should explain the proposed resolution before applying it.
-- AI output should remain editable and reviewable.
+1. Open the commit bar and choose a provider from the provider menu.
+2. Click the **Generate commit message** <Icon icon="sparkles" /> button.
+3. Review and edit the generated message before committing.
 
-## Privacy direction
+Commit+ prefers staged changes. If nothing is staged, it generates from tracked changes and untracked files in the working tree instead, so staging is not required just to draft a message.
 
-Commit+ does not currently ship AI features. Any future AI workflow should make data flow explicit before sending repository content outside the app.
+The result follows the Conventional Commits format, such as `feat:`, `fix:`, `refactor:`, or `docs:`. Commit+ uses the current branch, changed-file metadata, a bounded patch, and recent commit subjects to make the wording specific and consistent with the repository. If files change while generation is in progress, the stale result is rejected instead of replacing the editor contents.
+
+## Configure a cloud provider
+
+Open **Settings → AI Providers**, enter the API key for OpenAI, Claude, or Gemini, then click **Done**. Return to the commit bar and select the configured provider.
+
+API keys are stored only in this Mac's Keychain. You can replace or remove a key from the same settings screen. Commit+ does not provide or bill for cloud-model usage; requests use your provider account and are subject to that provider's pricing and limits.
+
+<Warning>
+  Cloud providers receive the repository context needed to generate the message, including changed-file information and a bounded patch. Commit+ sends the request directly to the selected provider API. Review your provider's data and retention policies before using it with sensitive code.
+</Warning>
+
+## Use Apple Intelligence on-device
+
+Select **Apple Intelligence — On-device** from the provider menu. No API key is required. The system model must be available on the Mac, Apple Intelligence must be enabled in System Settings, and its model must be ready.
+
+With Apple Intelligence selected, commit context is processed on the Mac and is not uploaded to an AI service.
+
+## Access
+
+AI commit-message generation is a Commit+ Pro feature. Sign in to Commit+ so the app can check your plan before generating a message. Provider selection and API keys remain local to the Mac.

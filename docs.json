@@ -29,6 +29,7 @@
               "features/undo-any-action",
               "features/drag-and-drop",
               "features/ai-features",
+              "features/git-flow",
               "features/worktrees",
               "features/conflict-resolution",
               "features/pull-requests"
@@ -49,13 +50,14 @@
       },
       {
         "tab": "Changelog",
-        "root": "changelog/overview",
+        "root": "changelog/v1.0.4",
         "icon": "rss",
         "groups": [
           {
-            "group": "Changelog",
+            "group": "Releases",
             "pages": [
-              "changelog/overview"
+              "changelog/v1.0.4",
+              "changelog/v1.0.3"
             ]
           }
         ]
@@ -103,5 +105,11 @@
     "socials": {
       "github": "https://github.com/Tranthanh98/macgit"
     }
-  }
+  },
+  "redirects": [
+    {
+      "source": "/changelog/overview",
+      "destination": "/changelog/v1.0.4"
+    }
+  ]
 }

@@ -1,0 +1,39 @@
+---
+title: "Git Flow Lite, AI commits, and workflow polish"
+sidebarTitle: "Git Flow Lite, AI commits"
+tag: "v1.0.4 · Aug 11, 2026"
+description: "Commit+ v1.0.4 adds Git Flow Lite, AI-generated commit messages, repository integrations, conflict-resolution improvements, and safer Git workflows."
+---
+
+`v1.0.4` · Released August 11, 2026 · [Compare with v1.0.3](https://github.com/Tranthanh98/macgit/compare/v1.0.3...v1.0.4)
+
+## New features
+
+### Git Flow Lite
+
+Configure Main and Develop branches plus branch prefixes, then start and finish Feature, Bugfix, Release, and Hotfix workflows without leaving Commit+.
+
+Work can stay in the current checkout or open in a dedicated worktree. The new dashboard shows active topics, while guarded recovery helps finish interrupted Release and Hotfix operations safely. See [Git Flow Lite](/features/git-flow).
+
+### AI-generated commit messages
+
+Generate a Conventional Commit-style message from staged changes with Apple Intelligence. The commit bar now includes provider selection and a Generate action, with settings for managing available AI providers.
+
+### Repository bookmarks and integrations
+
+Keep repository bookmarks available across signed-in Macs, configure external editors and diff or merge tools, and launch common repository actions directly from the toolbar.
+
+## Improvements
+
+- The conflict-resolution workspace now has an editable result buffer, syntax highlighting, clearer change highlights, navigation between conflicts, and undo support.
+- Settings now include dedicated Appearance, Git, Integrations, Advanced, Account, and Update sections, including global pull/fetch preferences and current/latest version information.
+- The sidebar has clearer branch hierarchy, Git Flow roles, worktree actions, and faster cached branch loading. Creating a nested branch now reveals its parent folders automatically.
+- Search, history filtering, push setup, stash apply/pop, and commit drag-and-drop have been refined for faster and more predictable workflows.
+- Repository and pull-request access now follows the signed-in plan while provider connections and credentials remain local-first.
+
+## Fixes
+
+- Rewriting a published tag can now be recovered by explicitly force-pushing only the selected tag to a chosen remote.
+- Fixed crashes and invalid-state handling when starting or finishing Git Flow workflows.
+- Improved branch deletion with explicit target selection and a force-delete option for unmerged local branches.
+- Fixed menu bar action state, diff syntax highlighting, conflict editor behavior, and several drag-and-drop edge cases.
