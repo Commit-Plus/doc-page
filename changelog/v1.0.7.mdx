@@ -1,0 +1,40 @@
+---
+title: "Repository AI, conflict resolution, and workflow polish"
+sidebarTitle: "Repository AI and conflicts"
+tag: "v1.0.7 · Aug 31, 2026"
+description: "Commit+ v1.0.7 adds Repository AI Chat, AI-assisted conflict resolution, commit explanations, and refinements across the toolbar, history, and sidebar."
+---
+
+`v1.0.7` · Released August 31, 2026 · [Compare with v1.0.6](https://github.com/Commit-Plus/macgit/compare/v1.0.6...v1.0.7)
+
+## New features
+
+### Repository AI Chat
+
+Open AI Chat beside the repository workspace to review current working-tree changes, ask follow-up questions, or explain a commit. Commit+ can load one of the ten most recent commits or resolve a commit hash, branch, tag, or `HEAD` reference before asking the selected provider for an explanation.
+
+Repository AI uses bounded, read-only Git context instead of scanning the repository indiscriminately. If the selected provider or underlying Git context changes while a request is running, Commit+ rejects the stale response. See [AI assistance](/features/ai-features).
+
+### AI-assisted conflict resolution
+
+Use **Resolve all conflicts with AI** from the conflict workspace to resolve and stage supported text files with the selected AI provider. Commit+ checks every generated plan before applying it, rejects changed or unsafe files, and leaves binary or non-UTF-8 conflicts for manual resolution.
+
+When repository context is not enough to choose safely, Commit+ asks only for the ambiguous decisions. Select an answer for each question, then apply those answers to complete the remaining files.
+
+### Explain a commit from History
+
+Right-click a commit and choose **AI Explain This Commit** to open Repository AI with that commit's metadata and bounded patch. The explanation focuses on intent, behavior, and risks that may matter during review.
+
+## Improvements
+
+- AI Chat now lives in a dedicated resizable right-side panel, and its width is remembered on this Mac.
+- Toolbar shortcuts are managed from a compact popover. Run actions from the list or pin up to four favorites to the toolbar.
+- Commit context menus now include action icons, and right-clicking an unselected row selects the intended commit before showing its actions.
+- Sidebar scroll indicators appear while the sidebar is hovered or scrolling, then move out of the way when they are no longer needed.
+- Cloud and on-device AI providers now share the Repository AI and conflict-resolution workflows, including OpenAI, Gemini, Claude, DeepSeek, OpenRouter, and Apple Intelligence.
+
+## Safety and reliability
+
+- AI conflict resolution validates that each file still matches the context sent to the provider before writing it.
+- Generated conflict results must resolve every conflict block, contain no remaining conflict markers, and pass Git's whitespace checks before Commit+ stages the file.
+- Repository AI rejects empty results and responses generated from stale working-tree or commit context.

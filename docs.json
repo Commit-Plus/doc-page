@@ -50,12 +50,13 @@
       },
       {
         "tab": "Changelog",
-        "root": "changelog/v1.0.4",
+        "root": "changelog/v1.0.7",
         "icon": "rss",
         "groups": [
           {
             "group": "Releases",
             "pages": [
+              "changelog/v1.0.7",
               "changelog/v1.0.4",
               "changelog/v1.0.3"
             ]
@@ -109,7 +110,7 @@
   "redirects": [
     {
       "source": "/changelog/overview",
-      "destination": "/changelog/v1.0.4"
+      "destination": "/changelog/v1.0.7"
     }
   ]
 }

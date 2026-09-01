@@ -1,9 +1,9 @@
 ---
-title: "AI commit messages"
-description: "Generate editable Conventional Commit messages with Apple Intelligence on-device or your own OpenAI, Claude, or Gemini API key."
+title: "AI assistance"
+description: "Generate commit messages, review changes, explain commits, and resolve conflicts with Apple Intelligence on-device or your own cloud-provider API key."
 ---
 
-Commit+ can turn the changes in your repository into a focused, editable Conventional Commit message. Choose an on-device model with Apple Intelligence, or bring your own API key for OpenAI, Claude, or Gemini.
+Commit+ uses focused Git context to generate commit messages, review working-tree changes, explain commits, and resolve text conflicts. Choose an on-device model with Apple Intelligence, or bring your own API key for a supported cloud provider.
 
 <CardGroup cols={2}>
   <Card title="Apple Intelligence" icon="apple" badge="On-device">
@@ -21,6 +21,14 @@ Commit+ can turn the changes in your repository into a focused, editable Convent
   <Card title="Gemini" icon="cloud" badge="BYOK">
     Generate with Gemini 3.5 Flash-Lite using a Google AI API key stored in your Mac's Keychain.
   </Card>
+
+  <Card title="DeepSeek" icon="cloud" badge="BYOK">
+    Use DeepSeek V4 Flash with a DeepSeek API key stored in your Mac's Keychain.
+  </Card>
+
+  <Card title="OpenRouter" icon="cloud" badge="BYOK">
+    Use OpenRouter's Auto Router, or configure another OpenRouter model, with an API key stored in your Mac's Keychain.
+  </Card>
 </CardGroup>
 
 ## Generate a commit message
@@ -33,14 +41,33 @@ Commit+ prefers staged changes. If nothing is staged, it generates from tracked 
 
 The result follows the Conventional Commits format, such as `feat:`, `fix:`, `refactor:`, or `docs:`. Commit+ uses the current branch, changed-file metadata, a bounded patch, and recent commit subjects to make the wording specific and consistent with the repository. If files change while generation is in progress, the stale result is rejected instead of replacing the editor contents.
 
+## Review changes and explain commits
+
+Open **Repository AI Chat** from the repository toolbar. The panel provides two focused starting points:
+
+- **Review changes** asks the selected provider to inspect current working-tree changes for concrete bugs, regressions, security issues, and missing tests.
+- **Explain commit** lets you choose one of the ten most recent commits or enter a commit hash, branch, tag, or `HEAD` reference. The response summarizes intent, behavior, and review risks.
+
+You can also right-click a commit in History and choose **AI Explain This Commit**. Follow-up questions continue in the same panel using the selected Git context. The panel is resizable, and Commit+ remembers its width locally on this Mac.
+
+Repository AI reads bounded Git metadata and patches for the working tree or selected commit. It does not give the provider unrestricted filesystem access. If the Git context or selected provider changes while a response is being generated, Commit+ rejects the stale response.
+
+## Resolve conflicts with AI
+
+Open the conflict workspace and click **Resolve all conflicts with AI** <Icon icon="sparkles" />. Commit+ sends each supported text conflict to the selected provider, validates the returned plan, writes the resolved result, runs Git's whitespace checks, and stages the file.
+
+If the available repository context does not support a safe choice, Commit+ pauses and asks for the decisions it could not determine. Select an answer for every question, then click **Apply Answers**. You can dismiss the questions and continue resolving manually at any time.
+
+AI conflict resolution supports UTF-8 text files containing Git conflict markers. Binary files, other encodings, oversized contexts, or files that change while the request is running remain available for manual resolution. Commit+ also rejects plans that leave conflict markers or do not resolve every conflict block.
+
 ## Configure a cloud provider
 
-Open **Settings → AI Providers**, enter the API key for OpenAI, Claude, or Gemini, then click **Done**. Return to the commit bar and select the configured provider.
+Open **Settings → AI Providers**, choose OpenAI, Gemini, Claude, DeepSeek, or OpenRouter, enter the provider API key, then click **Done**. Return to the repository and select the configured provider.
 
 API keys are stored only in this Mac's Keychain. You can replace or remove a key from the same settings screen. Commit+ does not provide or bill for cloud-model usage; requests use your provider account and are subject to that provider's pricing and limits.
 
 <Warning>
-  Cloud providers receive the repository context needed to generate the message, including changed-file information and a bounded patch. Commit+ sends the request directly to the selected provider API. Review your provider's data and retention policies before using it with sensitive code.
+  Cloud providers receive the bounded repository context needed for the action you request. This may include changed-file information, commit metadata and patches, or conflict sections and file context. Commit+ sends the request directly to the selected provider API. Review your provider's data and retention policies before using it with sensitive code.
 </Warning>
 
 ## Use Apple Intelligence on-device
@@ -51,4 +78,4 @@ With Apple Intelligence selected, commit context is processed on the Mac and is 
 
 ## Access
 
-AI commit-message generation is a Commit+ Pro feature. Sign in to Commit+ so the app can check your plan before generating a message. Provider selection and API keys remain local to the Mac.
+AI commit-message generation, Repository AI, AI conflict resolution, and BYOK configuration are Commit+ Pro features. Sign in so the app can check your plan before using them. Provider selection, model preferences, and API keys remain local to the Mac.
