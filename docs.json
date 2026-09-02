@@ -31,6 +31,7 @@
               "features/ai-features",
               "features/git-flow",
               "features/worktrees",
+              "features/prevent-potential-conflicts",
               "features/conflict-resolution",
               "features/pull-requests"
             ]
@@ -50,12 +51,13 @@
       },
       {
         "tab": "Changelog",
-        "root": "changelog/v1.0.7",
+        "root": "changelog/v1.0.8",
         "icon": "rss",
         "groups": [
           {
             "group": "Releases",
             "pages": [
+              "changelog/v1.0.8",
               "changelog/v1.0.7",
               "changelog/v1.0.4",
               "changelog/v1.0.3"
@@ -110,7 +112,7 @@
   "redirects": [
     {
       "source": "/changelog/overview",
-      "destination": "/changelog/v1.0.7"
+      "destination": "/changelog/v1.0.8"
     }
   ]
 }

@@ -1,0 +1,33 @@
+---
+title: "Prevent potential conflicts and refine History"
+sidebarTitle: "Prevent potential conflicts"
+tag: "v1.0.8 · Sep 2, 2026"
+description: "Commit+ v1.0.8 adds early potential-conflict warnings for branch updates, richer History details, and refinements to local state and commit workflows."
+---
+
+`v1.0.8` · Released September 2, 2026 · [Compare with v1.0.7](https://github.com/Commit-Plus/macgit/compare/v1.0.7...v1.0.8)
+
+## New features
+
+### Prevent potential conflicts before updating
+
+Commit+ now warns when an incoming base-branch update may interact with your local work. It checks incoming changed paths and Git's merge prediction, then marks affected changed files with a potential-conflict warning.
+
+Open **View Potential Conflict Details** from the file menu to inspect a local three-way preview. When Git predicts a textual overlap, Commit+ shows the relevant conflict blocks before the update begins. The warning does not modify your working copy or perform a merge automatically. See [Prevent potential conflicts](/features/prevent-potential-conflicts).
+
+### Commit information from History
+
+Open a compact commit information popover from History to review a commit's metadata without leaving the graph or opening a separate window.
+
+## Improvements
+
+- History now adapts its column widths more cleanly and preserves the intended selected commit after refreshes.
+- Local History and Sidebar presentation refresh when Commit+ becomes active, keeping branches, tags, stashes, and worktrees aligned with the repository's latest local state.
+- The commit workflow now supports intentionally empty commits and an empty commit message when the Git operation permits them.
+- Potential-conflict indicators now use a pointer cursor, making their interactive detail popover easier to discover.
+
+## Safety and reliability
+
+- Potential-conflict detection is advisory: it surfaces an incoming overlap before updating, but never rewrites local files or starts the update on its own.
+- The detailed preview uses the local version, merge base, and incoming version to isolate predicted textual conflict blocks.
+- Commit+ asks you to commit or stash local work and complete other Git operations before updating the current branch.

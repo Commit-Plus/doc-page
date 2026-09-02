@@ -1,0 +1,43 @@
+---
+title: "Prevent potential conflicts"
+description: "Identify files that may overlap with an incoming branch update before starting the update."
+---
+
+An update should not be the first moment you discover that someone changed the same code as you. **Prevent potential conflicts** moves that warning earlier: it identifies local files that may interact with an incoming base-branch update, lets you inspect the evidence, and leaves the decision to update in your hands.
+
+This is a warning system, not an automatic merge or a promise that every update will be conflict-free. Your working copy stays unchanged until you choose what to do next.
+
+## How Commit+ detects a potential conflict
+
+1. Commit+ finds the branch that can update the current branch. It uses the configured Git Flow base branch when applicable; otherwise it uses the remote's default branch.
+2. When that branch has commits the current branch does not, Commit+ asks Git for incoming changed paths and checks whether Git predicts merge conflicts at the branch level.
+3. A locally changed file receives a warning when it is also changed by the incoming branch, or when Git already predicts a merge conflict for it.
+4. When you open the file details, Commit+ runs a local three-way preview using your current file, the merge base, and the incoming version. If Git produces textual conflict markers, Commit+ shows the predicted conflict blocks.
+
+## 1. See that an update is waiting
+
+Commit+ first shows that the current branch has incoming work. If your working copy needs attention, the update action stays unavailable so you can commit or stash before starting the update.
+
+![An update popover in Commit+ showing that origin main has a new commit and local changes must be committed or stashed first](/showcase/prevent-conflict/update-branch.png)
+
+## 2. Find the file that may need attention
+
+The orange warning appears beside a locally changed file that the incoming branch also touches. The file is not conflicted yet; the marker turns a branch-level update into a precise place to review.
+
+![Commit+ File status view showing an orange potential update conflict warning beside a locally changed file](/showcase/prevent-conflict/potential-conflict-file-staged.png)
+
+## 3. Inspect the warning in context
+
+Right-click the file and choose **View Potential Conflict Details**. You can investigate the warning before updating, switching editors, or losing your place in the working tree.
+
+![Commit+ context menu highlighting View Potential Conflict Details for a changed file](/showcase/prevent-conflict/view-detail.png)
+
+## 4. Preview the predicted overlap
+
+The detail sheet compares the local content, merge base, and incoming branch version. It only displays predicted textual conflict blocks, so you can see where the two changes meet while your real file remains untouched.
+
+![Commit+ potential update conflict details showing a predicted textual overlap among local changes, merge base, and origin main](/showcase/prevent-conflict/detail-conflict.png)
+
+## Decide when to update
+
+Use the preview to choose the safe next step: keep working, stage a safe change, commit or stash local work, or update the branch once the working copy is ready. When a real conflict does occur, continue with the [Resolve Conflict Tool](/features/conflict-resolution).
