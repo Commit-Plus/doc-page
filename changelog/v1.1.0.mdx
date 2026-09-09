@@ -1,0 +1,35 @@
+---
+title: "Reflog workspace"
+sidebarTitle: "Reflog workspace"
+tag: "v1.1.0 · Sep 9, 2026"
+description: "Commit+ v1.1.0 adds a Reflog workspace for local reference history, event inspection, search, pagination, and branch-based recovery."
+---
+
+`v1.1.0` · Released September 9, 2026 · [Compare with v1.0.8](https://github.com/Commit-Plus/macgit/compare/v1.0.8...v1.1.0)
+
+## New features
+
+### Reflog workspace
+
+Open **Reflog** from the Workspace section to browse local Git reference history inside Commit+. The new view shows each reflog event with its action, event summary, reference, target commit, actor, and event date.
+
+Use the `HEAD` scope for the current checkout, or include all references when you need a broader view of local branch and reference movements. See [Reflog](/features/reflog).
+
+### Event details and recovery
+
+Selecting a reflog event opens a right-side detail panel with the full event metadata and recovery actions. You can inspect the target commit in History or create a new branch from the selected immutable commit hash.
+
+Recovery stays explicit: Commit+ routes branch creation through the existing create-branch flow and does not run hidden resets from Reflog.
+
+## Improvements
+
+- Reflog entries load in bounded pages so large repositories can browse older events without loading the entire history at once.
+- Search filters the loaded events in place, with a manual load-more path when you need to search further back.
+- Refresh preserves the current selection and reloads the visible range in batches.
+- Duplicate reflog events keep stable identities across pagination boundaries.
+
+## Safety and reliability
+
+- Reflog is treated as local repository evidence: it is not synced through remotes and may expire under Git's normal reflog cleanup rules.
+- Commit+ exposes inspection and branch-based recovery, but not reflog deletion or implicit reset operations.
+- Reflog parsing is covered by unit tests, and Git behavior was checked against temporary repositories during implementation.

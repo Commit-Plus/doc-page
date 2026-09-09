@@ -30,6 +30,7 @@
               "features/drag-and-drop",
               "features/ai-features",
               "features/git-flow",
+              "features/reflog",
               "features/worktrees",
               "features/prevent-potential-conflicts",
               "features/conflict-resolution",
@@ -51,12 +52,13 @@
       },
       {
         "tab": "Changelog",
-        "root": "changelog/v1.0.8",
+        "root": "changelog/v1.1.0",
         "icon": "rss",
         "groups": [
           {
             "group": "Releases",
             "pages": [
+              "changelog/v1.1.0",
               "changelog/v1.0.8",
               "changelog/v1.0.7",
               "changelog/v1.0.4",
@@ -112,7 +114,7 @@
   "redirects": [
     {
       "source": "/changelog/overview",
-      "destination": "/changelog/v1.0.8"
+      "destination": "/changelog/v1.1.0"
     }
   ]
 }
