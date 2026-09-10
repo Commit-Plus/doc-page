@@ -1,0 +1,124 @@
+---
+title: "Command Line Interface"
+description: "Open Git repositories in Commit+ directly from the Terminal with the commit command."
+---
+
+Commit+ includes a built-in CLI command that opens any Git repository directly in the app from your Terminal. No separate install step is needed — the command is bundled inside Commit+.
+
+## Quick start
+
+```bash
+# Open the current directory
+commit .
+
+# Open a repository by path
+commit /path/to/repository
+
+# Open the repository you are currently in
+commit
+```
+
+The command resolves the Git working-tree root automatically, including subdirectories and linked worktrees, then opens or focuses the corresponding Commit+ window.
+
+<video
+  src="/showcase/cli/Screen%20Recording%202026-09-10%20at%2021.33.52.mov"
+  autoPlay
+  muted
+  loop
+  playsInline
+  preload="auto"
+  disablePictureInPicture
+  aria-label="CLI demo — open a repository from Terminal"
+  style={{
+    width: "100%",
+    aspectRatio: "16 / 9",
+    borderRadius: "8px",
+    display: "block",
+    backgroundColor: "#f3f4f6",
+  }}
+></video>
+
+## How it works
+
+1. Run `commit` with an optional path argument.
+2. The CLI resolves the Git working-tree root from the given path.
+3. If the repository is already open in Commit+, the existing window is focused.
+4. If not, a new Commit+ window opens for that repository.
+
+If the path is not inside a Git repository, the CLI returns an error in Terminal with a nonzero exit code.
+
+## Install the CLI
+
+On first launch after the update, Commit+ shows a **Setup tip** with the option to **Install CLI & Configure PATH**. You can also install or reinstall at any time from **Settings → Command Line**.
+
+The installation process:
+
+- Copies the `commit` helper to `~/.local/bin/commit`
+- Adds `~/.local/bin` to your shell's `PATH` (supports zsh, bash, and fish)
+- Creates backups before modifying any shell configuration files
+- Preserves your existing shell configuration
+
+### Manual installation
+
+If you prefer to set it up yourself:
+
+```bash
+# Make sure ~/.local/bin exists
+mkdir -p ~/.local/bin
+
+# The commit helper is bundled inside Commit+.app
+# Copy it from the app bundle:
+cp "/Applications/Commit+.app/Contents/Resources/commit" ~/.local/bin/commit
+chmod +x ~/.local/bin/commit
+```
+
+Then add `~/.local/bin` to your shell's `PATH`:
+
+<CodeGroup>
+```bash zsh
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc
+source ~/.zshrc
+```
+
+```bash bash
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+```
+
+```bash fish
+fish_add_path ~/.local/bin
+```
+</CodeGroup>
+
+## Shell configuration safety
+
+Commit+ preserves your existing shell configuration:
+
+- Backups are created before any modifications are made
+- Existing `PATH` entries are checked before adding new ones
+- The setup respects your current shell environment
+
+## Settings
+
+Open **Settings → Command Line** to:
+
+- Install or reinstall the CLI
+- View the installation status
+- Reconfigure the PATH if needed
+
+The settings screen uses the same installation flow as the startup tip, with syntax-highlighted command blocks and copy buttons for easy reference.
+
+## Arguments
+
+| Argument | Description |
+| --- | --- |
+| _(none)_ | Open the current working directory's repository |
+| `.` | Same as no argument — open the current directory |
+| `/path/to/repo` | Open the repository at the specified path |
+| `--help` | Show CLI usage information |
+
+## Error handling
+
+- **Not a Git repository** — the CLI prints an error and exits with a nonzero code
+- **Invalid path** — the CLI prints an error and exits with a nonzero code
+- **Invalid arguments** — the CLI prints usage information

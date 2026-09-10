@@ -40,7 +40,8 @@
         "features/ai-features",
         "features/worktrees",
         "features/conflict-resolution",
-        "features/pull-requests"
+        "features/pull-requests",
+        "features/cli"
       ]
     },
     {
