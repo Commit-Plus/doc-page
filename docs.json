@@ -34,7 +34,8 @@
               "features/worktrees",
               "features/prevent-potential-conflicts",
               "features/conflict-resolution",
-              "features/pull-requests"
+              "features/pull-requests",
+              "features/cli"
             ]
           },
           {
