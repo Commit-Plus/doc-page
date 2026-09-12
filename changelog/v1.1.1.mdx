@@ -1,0 +1,48 @@
+---
+title: "AI chat history & PR generation"
+sidebarTitle: "AI chat history & PR generation"
+tag: "v1.1.1 · Sep 12, 2026"
+description: "Commit+ v1.1.1 adds persistent repository AI chat, AI-generated PR titles and descriptions, full file preview in History, web sign-in, and a welcome window."
+---
+
+`v1.1.1` · Released September 12, 2026 · [Compare with v1.1.0](https://github.com/Commit-Plus/macgit/compare/v1.1.0...v1.1.1)
+
+## New features
+
+### Repository AI chat history
+
+Your repository AI chat conversations are now persisted across sessions. Browse previous transcripts from the chat sidebar, continue where you left off, or delete conversations you no longer need. A dedicated transcript scrollbar makes navigating longer sessions easier.
+
+### AI-assisted pull request titles and descriptions
+
+Commit+ can now generate PR titles and descriptions for you using AI. When creating a pull request, the title and description fields are pre-filled with a summary based on the branch's commit history, giving you a solid starting point to refine before opening.
+
+### Full file preview in History
+
+Selecting a file in the History view now shows a full preview of its content at that commit, making it easier to review changes without leaving the workspace.
+
+### Web sign-in via browser callback
+
+Signing in with your provider account now opens your default browser for authentication. Once you complete the sign-in, Commit+ picks up the session automatically — no manual token entry required.
+
+### Welcome window on launch
+
+Commit+ now opens with a welcome window on first launch, providing quick access to recent repositories and setup options.
+
+### Terminal command to open repositories
+
+You can now open a repository directly from the terminal using a CLI command, making it faster to jump from the command line into Commit+.
+
+## Improvements
+
+- History table column widths are now persisted across sessions so your layout stays consistent.
+- Repository AI chat includes feature access gating and cancellation controls for better session management.
+- Only the branch integration warning is shown when conflicts are actually predicted, reducing noise.
+
+## Bug fixes
+
+- Fixed commit state loading that could show stale or incomplete data.
+- Improved the file detail view in History for clearer diffs and metadata.
+- Web sign-in progress is now displayed in an overlay and prevents duplicate browser opens.
+- Default PR target branch is set correctly and symbolic remote refs are filtered out.
+- Profile URLs now include the account path for accurate navigation.
