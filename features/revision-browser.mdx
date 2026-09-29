@@ -1,0 +1,87 @@
+---
+title: "Revision Browser"
+description: "Browse the complete file tree of any commit without checking it out, then preview or compare individual paths."
+---
+
+Revision Browser lets you inspect a repository exactly as it existed at an earlier commit without changing the current branch or working tree. It opens in a separate, read-only window, so you can explore old source, assets, and folders while keeping your current work in place.
+
+## Open a revision
+
+1. Open **History** and select one commit.
+2. Control-click the commit and choose **Show Repository at Revision**.
+3. Expand folders in the left pane and select a file to preview it.
+
+<video
+  controls
+  src="/showcase/new-feat-v1-1-18/revision-commit.mp4"
+  autoPlay
+  muted
+  loop
+  playsInline
+  preload="metadata"
+  disablePictureInPicture
+  aria-label="Open a commit as a read-only repository revision in Commit+"
+  style={{
+    width: "100%",
+    borderRadius: "8px",
+    display: "block",
+    backgroundColor: "#f3f4f6",
+  }}
+></video>
+
+The header shows the resolved commit SHA and subject. Paths changed by that commit are highlighted in the tree, while the rest of the snapshot remains available for context.
+
+<Tip>
+  Use **Copy Commit SHA**, **Copy Path**, or **Copy Object ID** when you need an
+  exact value for a review, issue, or terminal command.
+</Tip>
+
+## Preview historical files
+
+Commit+ reads file content directly from Git objects. It does not create a temporary checkout.
+
+- Text files use the same syntax-aware preview as History.
+- Supported image files open in the image preview.
+- Symbolic links show their recorded target.
+- Empty files and metadata-only entries are identified explicitly.
+- Very large text, long lines, and objects over the 2 MB preview limit show a safe summary instead of loading an unbounded preview.
+
+## Preview Git LFS content
+
+When a revision contains a Git LFS pointer, Commit+ shows the object's size and SHA-256 identifier. If the object is already in the local LFS cache, the browser previews its real content. Otherwise, choose a remote and download that one historical object from the preview.
+
+The repository snapshot stays read-only: downloading supplies preview content but does not check out the revision or replace the file in your working tree.
+
+## Compare a file or folder
+
+Control-click an entry, or use **Compare with Revision…** in the detail pane. The comparison window starts with the selected snapshot on the right and `HEAD` on the left. Enter another commit, branch, or tag to change the left side.
+
+<video
+  controls
+  src="/showcase/new-feat-v1-1-18/revision-file.mp4"
+  autoPlay
+  muted
+  loop
+  playsInline
+  preload="metadata"
+  disablePictureInPicture
+  aria-label="Compare a file with another revision in Commit+"
+  style={{
+    width: "100%",
+    borderRadius: "8px",
+    display: "block",
+    backgroundColor: "#f3f4f6",
+  }}
+></video>
+
+- A file comparison opens its diff immediately.
+- A folder comparison lists every changed path below that folder, then lets you inspect each diff.
+- Binary changes are identified even when a text diff is unavailable.
+
+This is useful when you know _where_ a change happened but do not want to check out branches just to inspect it.
+
+<Note>
+  Revision Browser never modifies refs, the index, or working-tree files. To
+  bring back part of an old commit, use [Selective Apply &
+  Revert](/features/selective-apply-revert).
+</Note>

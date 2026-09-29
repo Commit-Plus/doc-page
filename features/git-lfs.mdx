@@ -1,0 +1,59 @@
+---
+title: "Git LFS"
+description: "Set up Git LFS, manage tracking rules, convert large files, and download missing content inside Commit+."
+---
+
+Commit+ provides a native workspace for Git Large File Storage. Open **Git LFS** from the Workspace section to inspect LFS pointers on the current branch, manage tracking rules, convert existing files, and download missing content without leaving the app.
+
+## Choose a Git LFS runtime
+
+Git LFS 3.8 or later is required. In **Settings → Git**, find **Git LFS Installation** and choose one of these modes:
+
+- **Automatic** uses System Git LFS when it is available, otherwise Commit+'s Embedded Git LFS.
+- **System Git LFS** uses the executable installed on this Mac.
+- **Embedded Git LFS** uses a private copy downloaded and managed by Commit+.
+
+The Git LFS runtime is independent of the Git runtime and its selection is stored only on this Mac.
+
+## Set up a repository
+
+If the repository is not ready, choose **Set Up Git LFS…**. Commit+ configures the local LFS filters and connects the pre-push hook while preserving an existing custom hook.
+
+Setup does not stage or commit files. Review any resulting `.gitattributes` change in File Status and include it in the same commit as the files that depend on the new rule.
+
+## Manage tracking rules
+
+Use the **Tracking Rules** tab to add or remove a filename or pattern such as `*.psd`. Before writing `.gitattributes`, Commit+ shows the exact rule change for review.
+
+You can also:
+
+- Search the working tree for large files above a configurable size.
+- Turn a suggested file into an exact tracking rule.
+- Inspect where inherited or nested rules came from.
+- Open the root `.gitattributes` file for manual editing.
+
+Removing a rule does not rewrite existing pointers or history.
+
+## Convert an existing file
+
+Choose **Convert Existing File…**, select a file inside the repository, and review the conversion. **Convert & Stage** writes an LFS pointer to the index while leaving the working file intact.
+
+Commit the corresponding tracking rule with the pointer. Conversion affects the next commit only; it does not rewrite older commits or reduce their existing storage usage.
+
+## Inspect and download content
+
+The **Files** tab shows LFS paths referenced by the current view, their object size, SHA-256 identifier, and local state: Available, Not downloaded, Modified, or Conflict.
+
+Choose a remote, then use **Download Missing** for the checkout or **Download Selected** for specific paths. Transfers show file and byte progress, can be cancelled, and retain work that already completed. **Restore Cached Content** repopulates working files from objects already present in the local cache.
+
+Local availability is not upload status. Pushing LFS objects still follows Git's normal pre-push flow and may require provider credentials, storage, or bandwidth.
+
+## LFS-aware clone and revision preview
+
+When a clone needs Git LFS, Commit+ can install the embedded runtime and continue the checkout, or open the repository so setup can be completed later. [Revision Browser](/features/revision-browser) recognizes historical LFS pointers and can download one missing preview object from a selected remote.
+
+<Warning>
+  If a staged file relies on an unstaged LFS rule, Commit+ blocks the commit. Stage the relevant `.gitattributes` change so collaborators receive the same tracking behavior.
+</Warning>
+
+Git LFS access follows the repository and plan rules shown in the app. Public repositories are supported on the Free plan; Commit+ Pro enables Git LFS for private repositories.

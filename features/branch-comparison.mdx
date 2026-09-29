@@ -1,0 +1,60 @@
+---
+title: "Branch Comparison"
+description: "Compare branch trees and unique commits with merge-base or tip-to-tip views."
+---
+
+Branch Comparison puts the file and commit differences between two local or remote branches in one view. It works from local references and does not check out either branch.
+
+## Start a comparison
+
+Control-click a branch or remote branch in the sidebar and choose **Compare with…**. Commit+ opens the comparison in History, using the current branch as the initial Base when available and the selected branch as Target.
+
+Choose another Base or Target at any time, or use **Swap** to reverse the direction. **Refresh** rereads local references without fetching from a remote.
+
+<video
+  controls
+  src="/showcase/new-feat-v1-1-18/compare-branch.mp4"
+  autoPlay
+  muted
+  loop
+  playsInline
+  preload="metadata"
+  disablePictureInPicture
+  aria-label="Compare two branches and inspect their files and commits in Commit+"
+  style={{
+    width: "100%",
+    borderRadius: "8px",
+    display: "block",
+    backgroundColor: "#f3f4f6",
+  }}
+></video>
+
+## Choose how files are compared
+
+The comparison mode controls what the Files tab answers:
+
+- **Changes since merge base** shows what Target introduced after the branches' common ancestor. Use it to review a feature branch before merging.
+- **Tip-to-tip** compares the complete Base tree directly with the Target tree. Use it to answer how the two snapshots differ right now.
+
+If Git reports no single common ancestor, Commit+ explains why merge-base mode is unavailable and lets you switch to tip-to-tip.
+
+## Review files and patches
+
+The Files tab lists added, modified, deleted, and renamed paths for the selected mode. Select a file to inspect its patch. Commit+ calls out binary changes, metadata-only changes, rename-only changes, and large diffs whose displayed output is limited to 2 MB.
+
+Above the file list, the comparison shows the resolved merge base and how many commits Target is ahead of or behind Base.
+
+## Inspect unique commits
+
+Switch to **Commits** to see both sides at once:
+
+- **Only in Base** contains commits not reachable from Target.
+- **Only in Target** contains commits not reachable from Base.
+
+Long histories load in pages, so the first comparison stays responsive while older unique commits remain available through **Load more commits**.
+
+<Note>
+  The view is observational. It does not merge, rebase, fetch, or move a branch. When you are ready to integrate the result, use the existing branch actions explicitly.
+</Note>
+
+For a narrower comparison of one path against a commit, branch, or tag, see [Revision Browser](/features/revision-browser).

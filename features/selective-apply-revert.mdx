@@ -1,0 +1,62 @@
+---
+title: "Selective Apply & Revert"
+description: "Bring back or reverse only the files, hunks, or lines you choose from a commit in History."
+---
+
+Selective Apply & Revert lets you reuse part of an earlier commit without cherry-picking the entire commit, or reverse only the changes you no longer want. The result is written to the current working tree for review; Commit+ does not stage or commit it automatically.
+
+## Choose the exact scope
+
+Open **History**, select a commit, and then choose one of three levels:
+
+- **Files** — select one or more files, Control-click, then choose **Apply Selected Changes** or **Revert Selected Changes**.
+- **Hunk** — open a file diff and use the **Changes** menu for that hunk.
+- **Lines** — select changed lines in one file, Control-click, then apply or revert only that selection.
+
+**Apply** brings the selected change from the historical commit into the current working tree. **Revert** applies its inverse.
+
+<video
+  controls
+  src="/showcase/new-feat-v1-1-18/apply-selective.mp4"
+  autoPlay
+  muted
+  loop
+  playsInline
+  preload="metadata"
+  disablePictureInPicture
+  aria-label="Apply selected changes from a commit into the current working tree"
+  style={{
+    width: "100%",
+    borderRadius: "8px",
+    display: "block",
+    backgroundColor: "#f3f4f6",
+  }}
+></video>
+
+## Review before anything changes
+
+Commit+ first prepares the patch and opens a review sheet. It shows the source commit, current target branch, scope, affected files, renames, permissions, and the exact diff that would be written.
+
+Nothing changes until you confirm **Apply** or **Revert**. After confirmation, the changes remain unstaged so you can inspect, edit, stage, or discard them through the normal File Status workflow.
+
+## Handle overlapping edits
+
+The selected commit may touch lines that have changed again on the current branch. Commit+ attempts a three-way merge for each selected file and marks files that need attention before any patch is applied.
+
+Open **Resolve…** to review the base, selected change, and current content. Resolve or skip every conflicting file, return to the patch review, and confirm only when the complete result is ready.
+
+If the branch, index, or selected files change after the review is prepared, Commit+ rejects the stale patch and asks you to prepare it again. A failed preflight preserves the working copy and does not leave `.rej` files or an in-progress Git operation.
+
+## Safety and current limits
+
+- Merge commits are not supported as a selective source; choose a non-merge commit.
+- Binary files, submodules, and symbolic-link changes are excluded.
+- A selected patch must be UTF-8 text and no larger than 5 MB.
+- Finish active merge, rebase, cherry-pick, or revert operations and resolve existing conflicts first.
+- A line selection can come from only one file at a time.
+
+Successful selective changes participate in Commit+'s guarded Undo and Redo flow.
+
+<Tip>
+  Use [Revision Browser](/features/revision-browser) when you need to inspect the whole historical tree first, then return to History to apply only the part you want.
+</Tip>

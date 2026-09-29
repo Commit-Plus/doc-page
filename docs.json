@@ -26,6 +26,10 @@
           {
             "group": "Polished Features",
             "pages": [
+              "features/revision-browser",
+              "features/branch-comparison",
+              "features/selective-apply-revert",
+              "features/git-lfs",
               "features/undo-any-action",
               "features/drag-and-drop",
               "features/ai-features",
@@ -53,11 +57,17 @@
       },
       {
         "tab": "Changelog",
-        "root": "changelog/v1.1.1",
+        "root": "changelog/overview",
         "icon": "rss",
         "groups": [
           {
             "group": "Releases",
+            "pages": [
+              "changelog/overview"
+            ]
+          },
+          {
+            "group": "Archive",
             "pages": [
               "changelog/v1.1.1",
               "changelog/v1.1.0",
@@ -80,13 +90,13 @@
               "docs/architecture"
             ]
           },
-              {
-                "group": "Setup",
-                "pages": [
-                  "docs/local-development",
-                  "docs/contributing"
-                ]
-              }
+          {
+            "group": "Setup",
+            "pages": [
+              "docs/local-development",
+              "docs/contributing"
+            ]
+          }
         ]
       }
     ]
@@ -113,10 +123,5 @@
       "github": "https://github.com/Tranthanh98/macgit"
     }
   },
-  "redirects": [
-    {
-      "source": "/changelog/overview",
-      "destination": "/changelog/v1.1.1"
-    }
-  ]
+  "redirects": []
 }
