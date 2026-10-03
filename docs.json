@@ -33,6 +33,7 @@
               "features/undo-any-action",
               "features/drag-and-drop",
               "features/ai-features",
+              "features/self-hosted-git-providers",
               "features/git-flow",
               "features/reflog",
               "features/worktrees",

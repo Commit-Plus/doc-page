@@ -1,0 +1,101 @@
+---
+title: "Self-hosted Git providers"
+description: "Connect GitHub Enterprise Server and GitLab Self-Managed accounts to use private repositories, Git operations, and pull request workflows in Commit+."
+---
+
+Commit+ Pro supports GitHub Enterprise Server and GitLab Self-Managed alongside GitHub.com and GitLab.com. Connect your company server once, then use its repositories and credentials throughout the app.
+
+## Connect your server
+
+1. Open **Settings → Account** and find **Git Provider Accounts**.
+2. Click **Add**, then select **GitHub** or **GitLab**.
+3. Enable **Self-hosted server (Pro)**.
+4. Enter the server's HTTPS URL, including a custom port or installation subpath when required.
+5. Keep **HTTPS** selected, enter a personal access token, then click **Connect Account**.
+6. After Commit+ displays the connected username, click **Save**.
+
+<img
+  src="/showcase/self-hosted-git-providers/account-settings.png"
+  alt="Edit Account in Commit+ with GitLab self-hosting enabled, a server URL, personal access token, username, and HTTPS protocol"
+  style={{
+    width: "720px",
+    maxWidth: "100%",
+    borderRadius: "8px",
+    display: "block",
+  }}
+/>
+
+The server URL must use HTTPS. For example:
+
+- GitHub Enterprise Server: `https://github.company.com`
+- GitLab Self-Managed: `https://gitlab.company.com`
+- GitLab with a custom port or subpath: `https://source.company.com:8443/gitlab`
+
+Commit+ validates the token against the server's user API before saving the account. Public GitHub and GitLab accounts continue to use their existing OAuth connection flow; self-hosted accounts use personal access tokens.
+
+## Personal access token permissions
+
+Your token must be able to access the repositories and API actions you want to use.
+
+<Tabs>
+  <Tab title="GitHub Enterprise Server">
+    A classic personal access token with the `repo` scope covers private repositories. Add the `workflow` scope if you need to push changes to GitHub Actions workflow files.
+
+    Fine-grained token support and available permissions depend on your GitHub Enterprise Server version and administrator policy.
+  </Tab>
+
+  <Tab title="GitLab Self-Managed">
+    Create a personal access token with the `api` scope. Commit+ uses it for both provider API access and HTTPS Git operations.
+  </Tab>
+</Tabs>
+
+A successful connection confirms your identity, but it does not guarantee access to every repository. Server policy, SSO rules, token permissions, and repository permissions still apply.
+
+## Use self-hosted repositories
+
+After connecting an account, Commit+ routes supported workflows to its configured server:
+
+- Browse repositories from the **Clone** window under **Browse connected repositories**.
+- Clone private repositories over HTTPS using the matching stored credential.
+- Fetch, pull, and push without entering the token again.
+- Load remote branches and repository visibility.
+- Browse pull requests or merge requests and use the supported PR/MR actions.
+- Read branch protection information when the server and token expose it.
+
+Repository discovery shows repositories returned for the connected token. GitLab limits this list to repositories where the account is a member. Use **Load more** when the server has additional result pages.
+
+## Use SSH for Git operations
+
+You can select **SSH**, choose a private key, and test it against the configured hostname. Commit+ respects your SSH configuration, including host aliases and custom SSH ports.
+
+<Note>
+  SSH authentication covers Git transport only. Keep an API token on the account if you also want repository discovery or pull request and merge request features.
+</Note>
+
+An HTTPS API port is not automatically an SSH port. If multiple installations share one hostname, an SSH remote cannot identify the server's HTTPS port or subpath; use HTTPS or configure the mapping in your existing Git and SSH setup.
+
+## Security and account changes
+
+Personal access tokens and SSH keys stay in the local macOS Keychain. Commit+ does not disable HTTPS certificate validation.
+
+To rotate an expired or revoked token, edit the provider account, enter the replacement token, click **Reconnect**, then save the account. Connecting or reconnecting a self-hosted server requires an active Commit+ Pro plan.
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Commit+ cannot reach the server">
+    Check the full server URL, DNS, network connection, and company VPN. Include any required HTTPS port or installation subpath.
+  </Accordion>
+
+  <Accordion title="The server certificate is not trusted">
+    Install and trust your organization's certificate in macOS Keychain. Commit+ requires normal HTTPS certificate validation.
+  </Accordion>
+
+  <Accordion title="The token is invalid or expired">
+    Edit the account and reconnect with a replacement personal access token.
+  </Accordion>
+
+  <Accordion title="A repository or operation is unavailable">
+    Verify the token scopes, repository membership, SSO authorization, and administrator policies for the server. Reconnecting the account does not add permissions to the token.
+  </Accordion>
+</AccordionGroup>
