@@ -1,0 +1,120 @@
+---
+title: "Custom Actions"
+description: "Run your own tools and scripts from Commit+ with repository, selected file, or selected commit context."
+---
+
+Custom Actions lets you bring your own tools into Commit+. Configure an executable or script once, then run it for the current repository, selected files, or selected commits without switching to Terminal.
+
+Available starting with [Commit+ v1.1.11](https://github.com/Commit-Plus/commit-plus/releases/tag/v1.1.11).
+
+## Add a custom action
+
+1. Open **Settings → Custom Actions** and click **Add**.
+2. Enter a **Name** that describes what the action does.
+3. Choose a **Type** and configure its executable or script.
+4. Enter any **Arguments**, using the context placeholders below when needed.
+5. Under **Availability**, choose **Repository**, **Selected Files**, **Selected Commits**, or a combination.
+6. Enable **Always Show Output** if you want to see the result after every run, then click **Save**.
+
+<video
+  controls
+  src="/showcase/custom-action/how-to-add-custom-action.mp4"
+  muted
+  playsInline
+  preload="metadata"
+  aria-label="Create a custom action in Commit+ Settings"
+  style={{
+    width: "100%",
+    borderRadius: "8px",
+    display: "block",
+    backgroundColor: "#f3f4f6",
+  }}
+></video>
+
+### Choose an action type
+
+| Type | How to configure it | Best for |
+| --- | --- | --- |
+| **Executable** | Choose a program or enter its absolute path. | Running an installed command-line tool. |
+| **Local Script** | Choose a script file and its language. The file stays on your Mac. | Reusing a script you maintain locally. |
+| **Synced Script** | Import a script or enter its source in the editor, then choose its language. | Keeping the script source with the action and syncing it to your other Macs. |
+
+Scripts support **Shell**, **Bash**, **Zsh**, and **Python**. Synced scripts must contain UTF-8 text and be no larger than 256 KB. The required interpreter or tool must be available on the Mac where you run the action.
+
+## Pass repository and selection context
+
+Commit+ runs each action with the repository as its working directory. Add these placeholders to **Arguments** to pass the current context to your tool:
+
+| Placeholder | Value passed to the action |
+| --- | --- |
+| `$REPO` | The repository's absolute path. |
+| `$FILE` | The selected file paths, each passed as a separate argument. |
+| `$SHA` | The selected commit hashes, each passed as a separate argument. |
+
+Placeholders must be **standalone arguments**. For example, use `--repo $REPO`, rather than `--repo=$REPO`. Quote literal arguments that contain spaces, such as `"My report"`.
+
+An action using `$FILE` requires a file selection; one using `$SHA` requires a commit selection. Match **Availability** to the context your action needs.
+
+### Example: show selected commit details
+
+Create an action with these settings:
+
+| Setting | Value |
+| --- | --- |
+| **Name** | Show commit details |
+| **Type** | Executable |
+| **Executable** | `/usr/bin/git` |
+| **Arguments** | `show --stat $SHA` |
+| **Availability** | Selected Commits |
+| **Always Show Output** | On |
+
+Select a commit in History and run the action to see its commit message and file change summary in the output sheet.
+
+## Run an action
+
+Open the repository you want to work with, then choose an action from **Custom Actions**:
+
+- **Repository actions** are available from **Actions → Custom Actions** in the menu bar and run with the active repository's context.
+- **File actions** appear in the **Custom Actions** context menu for selected files in File Status.
+- **Commit actions** appear in the **Custom Actions** context menu for selected commits in History.
+
+Only actions configured for that context appear. An action is unavailable when a required selection is missing or it has not been trusted on this Mac.
+
+<video
+  controls
+  src="/showcase/custom-action/use-custom-action.mp4"
+  muted
+  playsInline
+  preload="metadata"
+  aria-label="Run a custom action in Commit+"
+  style={{
+    width: "100%",
+    borderRadius: "8px",
+    display: "block",
+    backgroundColor: "#f3f4f6",
+  }}
+></video>
+
+### View command output
+
+Enable **Always Show Output** to inspect successful runs as well as failures. The output sheet shows the action's status, standard output, and standard error. Failed or cancelled runs show their output automatically.
+
+Output is limited to 1 MB per stream; longer output is marked as truncated.
+
+## Sync actions across Macs
+
+Open **Settings → Custom Actions** and enable **Sync Custom Actions** to sync action definitions across your Macs. You must also have **Settings Sync** enabled and be signed in to your Commit+ account.
+
+Synced definitions include arguments, local paths, and embedded source for **Synced Script** actions. The **Sync Custom Actions** toggle applies to the current Mac. Turning it off stops Custom Actions syncing on that Mac; existing cloud copies remain, and your local actions are still available to run.
+
+An executable or **Local Script** file is not uploaded with its definition. Install the tool or copy the script to your other Mac. If its path is missing, use **Locate…** in Custom Actions settings to select the file on that Mac.
+
+Execution trust is local to each Mac. For a synced action that needs approval, click **Review…**, inspect its executable or script and arguments, then **Save**. Changes to the command, arguments, or script source require review again on other Macs before execution.
+
+<Note>
+  Synced definitions can include script source, arguments, and local paths. Keep credentials and tokens out of these fields.
+</Note>
+
+## Manage your actions
+
+Return to **Settings → Custom Actions** to **Edit**, **Duplicate**, or **Remove** an action. Drag actions in the list to change their order. A **Ready** status indicates the action is trusted on this Mac and its local file is present when required.

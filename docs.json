@@ -26,6 +26,7 @@
           {
             "group": "Polished Features",
             "pages": [
+              "features/custom-actions",
               "features/revision-browser",
               "features/branch-comparison",
               "features/selective-apply-revert",
