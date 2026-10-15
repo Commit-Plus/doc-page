@@ -1,0 +1,57 @@
+---
+title: "File Lists and Image Comparison"
+description: "Browse changed files as folder trees and compare image revisions in File Status and History."
+---
+
+## Choose a file list layout
+
+Open **Settings → General → File Lists → File display** and choose **Plain list** or **Tree**. You can also use the layout button in a file-list header. This shared preference applies to Staged and Changed files, commit files in History, and pull request changed files and draft changes. It syncs with your account settings.
+
+In Tree mode, expand or collapse folders to navigate paths. In File Status, a folder checkbox selects its files for an action; the folder's quick action stages or unstages its files. Select an individual file to preview its diff.
+
+<video
+  controls
+  src="/showcase/new-feat-v1-1-16/treeview.mp4"
+  autoPlay
+  muted
+  loop
+  playsInline
+  preload="metadata"
+  disablePictureInPicture
+  aria-label="Browse changed files in Tree mode in Commit+"
+  style={{
+    width: "100%",
+    borderRadius: "8px",
+    display: "block",
+    backgroundColor: "#f3f4f6",
+  }}
+></video>
+
+## Compare image changes
+
+Select a supported image in **File Status** or a commit's file list in **History**. Use the image comparison button above the preview to switch between **Overlay Slider** and **Side by Side**.
+
+- **Overlay Slider** places the before and after images over one another. Drag the divider across the preview to reveal each revision.
+- **Side by Side** shows the before and after images in separate panels.
+
+<video
+  controls
+  src="/showcase/new-feat-v1-1-16/diff-view-image.mp4"
+  autoPlay
+  muted
+  loop
+  playsInline
+  preload="metadata"
+  disablePictureInPicture
+  aria-label="Compare image revisions in Commit+"
+  style={{
+    width: "100%",
+    borderRadius: "8px",
+    display: "block",
+    backgroundColor: "#f3f4f6",
+  }}
+></video>
+
+For staged files, Commit+ compares HEAD with the index. For unstaged files, it compares the index with the working file. History compares the selected commit with its first parent. Added files show the new image; deleted files show the previous image.
+
+Image content must be available locally and decodable by macOS. An unavailable revision or unsupported image format shows an error for that side.
