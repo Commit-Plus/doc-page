@@ -17,4 +17,20 @@ Hold `⌥` while dragging a branch onto the current branch to rebase onto it ins
 
 ## Interactive rebase
 
-Commit+ is designed to grow toward direct history editing, including reorder, squash, and fixup workflows. Those drag-based interactive rebase actions are roadmap items, not shipped behavior in the current docs.
+In History, right-click a commit and choose **Interactively Rebase 'your-branch' to Here...**. For an ancestor on the current branch, the sheet lists commits after that base. A commit outside the current branch can be used as the new destination when a common base exists.
+
+1. Review the commits in application order, from top to bottom.
+2. Use **Move Earlier** and **Move Later** to reorder them.
+3. Choose an action for each commit: **Pick**, **Reword Message**, **Edit**, **Squash into Parent**, **Fixup into Parent**, or **Drop**.
+4. Enter replacement messages for Reword, or an optional combined message for Squash. Select a row to review its **Commit** details or **Changes**.
+5. Click **Rebase** to apply the plan.
+
+Squash combines changes and messages with the preceding kept commit; Fixup discards the selected commit's message. Drop removes the commit and its changes. Edit pauses so you can change files, stage and amend in File Status, then continue.
+
+Eligible commits on the current branch also expose Reword, Edit, Squash, Fixup, and Drop in their row action menu. Squash and Fixup need a parent and can use a merge commit as the immediate parent. Other ranges containing merge commits are unsupported. Check out a branch and commit or stash local changes before starting.
+
+When a rebase pauses, resolve conflicts and stage the result in [File Status](/features/conflict-resolution), then choose **Continue**, **Skip**, or **Abort**. Skip omits the paused commit; Abort cancels the rebase.
+
+<Warning>
+Rewriting history changes commit hashes, including published commits. Publishing the rewritten branch may require a [force push](/docs/push-pull-fetch). Remote status reflects the last fetch.
+</Warning>

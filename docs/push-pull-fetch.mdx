@@ -18,3 +18,9 @@ Use the push, pull, and fetch actions directly while remote drag-and-drop is bei
 ## Undoing remote actions
 
 Pull and publish can be undone with `Cmd+Z`. See [Undo Action](/features/undo-any-action).
+
+## Force push from the Push dialog
+
+Select the remote and exactly one branch, then enable **Force Push**. Click **OK** to open the existing force-push review flow and review the destination before confirming. Tags are excluded and **Push all tags** is disabled while Force Push is enabled.
+
+Use this when publishing rewritten history, such as after [interactive rebase](/docs/branch-merge-rebase). Review shared history with collaborators before replacing a remote branch.

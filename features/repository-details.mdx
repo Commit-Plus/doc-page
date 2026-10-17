@@ -1,0 +1,26 @@
+---
+title: "Repository Catalog & Statistics"
+description: "Find local repositories and inspect their README, remotes, and activity."
+---
+
+## Find repositories
+
+From Welcome or Choose a Repository in a new tab, switch between **Recent** and **Your Repos**. In Your Repos, choose **Add Folder** to scan selected folders for Git repositories. Multiple roots are supported; Home and filesystem root are rejected. Overlapping roots do not duplicate repositories.
+
+Use the plain-list or folder-tree presentation, search, sorting, provider filters, and bookmark filter to narrow the list. These preferences and the catalog are stored locally. Existing bookmark sync keeps its current behavior; scanning does not create cloud bookmarks.
+
+## Inspect before opening
+
+Choose **View** on a repository row to show its details. **Open** opens the repository workspace. Details include repository information, Git object database size, remotes with provider links, and **Summary** and **Statistics** tabs.
+
+Summary displays the working-tree README, including uncommitted edits. An empty state appears when no supported README is found. Repository size measures Git objects, excluding working files and build caches; linked worktrees share the common object database.
+
+![Repository details with the Summary tab](/showcase/new-welcome/repo-summary.png)
+
+## Explore statistics
+
+Open **Statistics**, select a date range, and inspect commits per month, contributors, weekday, and hour. Open **All contributors** for the contributor list.
+
+![Repository statistics with commit activity charts](/showcase/new-welcome/repo-stat.png)
+
+Statistics count unique commits reachable from local refs and HEAD, including merges. Shallow clones show partial local history. Results are cached locally for six hours per repository and query; **Reload** recalculates from local Git history without fetching from a remote.
