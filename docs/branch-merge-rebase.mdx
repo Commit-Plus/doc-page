@@ -11,6 +11,24 @@ description: "Create branches, merge, and rebase in Commit+."
 
 Drag a branch onto the current branch to merge it. Alternatively use `Cmd+Shift+M` to open the merge flow directly.
 
+## Find and clean up merged branches
+
+Commit+ Pro can identify local branches whose current tip was included in a merged GitHub pull request or GitLab merge request. Connect the matching provider account, then open a repository: confirmed branches receive a **Merged** pill in the sidebar.
+
+Control-click a local branch and open **Merge Status** to:
+
+- **Review Merge Evidence…** and open the pull request or merge request that proves the branch tip was merged.
+- **Refresh Merge Status** after remote activity changes.
+- **Delete Fully Merged Branches…** to review all eligible merged branches before removing them.
+
+Commit+ excludes the current branch and protected main, master, develop, and configured Git Flow branches. Before deletion, it checks the provider evidence again and confirms that each branch still points to the reviewed commit. If the branch changed, is protected or in use, or the evidence is no longer available, deletion stops for that branch.
+
+The status is checked when you open the repository and after a manual fetch or merge-status refresh. To hide the pills for one repository without changing the provider connection, open **Repository Settings → Advanced** and turn off **Show merged branch hints**.
+
+<Note>
+Merge detection needs a connected GitHub or GitLab account and provider evidence for the exact branch tip. Git ancestry alone is not treated as proof that a branch was merged.
+</Note>
+
 ## Rebase
 
 Hold `⌥` while dragging a branch onto the current branch to rebase onto it instead of merging.
