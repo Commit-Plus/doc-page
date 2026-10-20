@@ -21,7 +21,7 @@ Control-click a local branch and open **Merge Status** to:
 - **Refresh Merge Status** after remote activity changes.
 - **Delete Fully Merged Branches…** to review all eligible merged branches before removing them.
 
-Commit+ excludes the current branch and protected main, master, develop, and configured Git Flow branches. Before deletion, it checks the provider evidence again and confirms that each branch still points to the reviewed commit. If the branch changed, is protected or in use, or the evidence is no longer available, deletion stops for that branch.
+Commit+ excludes the current branch and protected main, master, develop, and configured Git Flow branches. Before deletion, it checks the provider evidence again and confirms that each branch still points to the reviewed commit. If the branch changed, is protected or in use, or the evidence is no longer available, deletion stops for that branch and continues with the remaining branches. Failures identify the affected branches. Remote deletions finish in [Background Activity](/docs/push-pull-fetch#background-activity).
 
 The status is checked when you open the repository and after a manual fetch or merge-status refresh. To hide the pills for one repository without changing the provider connection, open **Repository Settings → Advanced** and turn off **Show merged branch hints**.
 
@@ -52,3 +52,9 @@ When a rebase pauses, resolve conflicts and stage the result in [File Status](/f
 <Warning>
 Rewriting history changes commit hashes, including published commits. Publishing the rewritten branch may require a [force push](/docs/push-pull-fetch). Remote status reflects the last fetch.
 </Warning>
+
+## Cleanup reminders
+
+Open the notification bell in the repository window or the Commit+ notification menu in the macOS menu bar. Use the source picker to select **App notifications**. This view includes release notes and merged-branch cleanup reminders, separate from **GitHub notifications**.
+
+With Commit+ Pro and a connected provider account, after merged-branch detection is ready, Commit+ checks for cleanup candidates once per repository per day. A reminder opens the repository and its cleanup review; candidates are checked again before deletion. Reminders are stored locally.

@@ -67,7 +67,8 @@
           {
             "group": "Releases",
             "pages": [
-              "changelog/overview"
+              "changelog/overview",
+              "changelog/v1.1.19"
             ]
           },
           {

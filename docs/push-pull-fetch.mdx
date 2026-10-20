@@ -24,3 +24,29 @@ Pull and publish can be undone with `Cmd+Z`. See [Undo Action](/features/undo-an
 Select the remote and exactly one branch, then enable **Force Push**. Click **OK** to open the existing force-push review flow and review the destination before confirming. Tags are excluded and **Push all tags** is disabled while Force Push is enabled.
 
 Use this when publishing rewritten history, such as after [interactive rebase](/docs/branch-merge-rebase). Review shared history with collaborators before replacing a remote branch.
+
+## Background activity
+
+After confirming a push or fetch, you can keep browsing the repository while it runs. Click the repository name in the window header to open **Background Activity**. Actions run one at a time per window; queued actions show **Waiting…**, and active actions show **Running…**.
+
+<video
+  controls
+  src="/showcase/new-feat-v1-1-19/background-process.mp4"
+  autoPlay
+  muted
+  loop
+  playsInline
+  preload="metadata"
+  disablePictureInPicture
+  aria-label="Review background Git activity in Commit+"
+  style={{
+    width: "100%",
+    borderRadius: "8px",
+    display: "block",
+    backgroundColor: "#f3f4f6",
+  }}
+></video>
+
+Successful actions disappear. Failed actions remain with a summary: choose **View** for the full error or **Dismiss** to remove the entry. Automatic fetch appears briefly in this panel and backs off after failures. Pull and other operations that change the working tree may still block interaction while they run.
+
+Remote branch deletion also uses this panel. A local branch can disappear before its remote deletion finishes; check Background Activity for remote failures.

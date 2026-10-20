@@ -1,0 +1,45 @@
+---
+title: "Background Git activity & app notifications"
+sidebarTitle: "v1.1.19"
+description: "Background remote actions, cleanup reminders, repository recovery, and faster History navigation."
+---
+
+`v1.1.19` · Changes since `v1.1.18`.
+
+### Added
+
+- **Background Git activity** — Push, fetch, and remote branch deletion run in the background. Click the repository name to review queued actions and error details.
+- **App notifications** — Switch between GitHub and app notifications, view release notes, and open daily merged-branch cleanup reminders.
+- **Repository recovery** — Locate a moved repository folder, retry access, or close an unavailable repository.
+
+<video
+  controls
+  src="/showcase/new-feat-v1-1-19/background-process.mp4"
+  autoPlay
+  muted
+  loop
+  playsInline
+  preload="metadata"
+  disablePictureInPicture
+  aria-label="Review background Git activity in Commit+"
+  style={{
+    width: "100%",
+    borderRadius: "8px",
+    display: "block",
+    backgroundColor: "#f3f4f6",
+  }}
+></video>
+
+### Improved
+
+- File Status shows separate staged and changed file counts in the sidebar.
+- History caches commit details and file diffs for faster repeat navigation.
+- Pull request descriptions and comments support richer Markdown and GitHub review diff context, with branch-name and link copy controls and a more adaptable header.
+- Automatic fetch backs off after failures and coordinates with queued remote actions.
+
+### Fixed
+
+- Batch branch deletion continues after individual failures and reports the affected branches.
+- Pull request notification clicks reuse an existing repository window when available.
+
+[Compare v1.1.18 to v1.1.19](https://github.com/Commit-Plus/commit-plus/compare/v1.1.18...v1.1.19)
