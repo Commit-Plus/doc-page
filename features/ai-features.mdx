@@ -26,6 +26,10 @@ Commit+ uses focused Git context to generate commit messages, review working-tre
     Use DeepSeek V4 Flash with a DeepSeek API key stored in your Mac's Keychain.
   </Card>
 
+  <Card title="Groq" icon="cloud" badge="BYOK">
+    Use Llama or GPT-OSS models hosted on Groq with a Groq API key stored in your Mac's Keychain.
+  </Card>
+
   <Card title="OpenRouter" icon="cloud" badge="BYOK">
     Use OpenRouter's Auto Router, or configure another OpenRouter model, with an API key stored in your Mac's Keychain.
   </Card>
@@ -66,7 +70,11 @@ AI conflict resolution supports UTF-8 text files containing Git conflict markers
 
 ## Configure a cloud provider
 
-Open **Settings → AI Providers**, choose OpenAI, Gemini, Claude, DeepSeek, or OpenRouter, enter the provider API key, then click **Done**. Return to the repository and select the configured provider.
+Open **Settings → AI Providers** and click **Add Provider…**. Choose OpenAI, Gemini, Claude, DeepSeek, Groq, or OpenRouter, enter the provider API key, pick a suggested model or choose **Other…** to enter any model ID the provider supports, then click **Save**. Use **Edit…** or **Remove…** on a configured provider to change its key or model. Return to the repository and select the configured provider.
+
+### Thinking
+
+The **Thinking** toggle in **Settings → AI Providers** lets models that support reasoning think before answering. It applies to every cloud provider you configure; Apple Intelligence and Commit+ AI are not affected. Thinking is off by default. When it is off, Commit+ disables thinking where the model allows it, or uses the lowest reasoning level on models that always think. Responses with thinking on take longer and use more tokens.
 
 ![AI Providers settings with the default provider, model, and Keychain configuration](/showcase/ai-assistance/config-ai.png)
 
