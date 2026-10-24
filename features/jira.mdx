@@ -1,0 +1,64 @@
+---
+title: "Jira issues"
+description: "Connect a Jira Cloud site to see the issues assigned to you in Commit+, filter them by sprint, status, project, and type, and start a branch or Git Flow topic from an issue."
+---
+
+Commit+ Pro can list the Jira issues assigned to you next to your repository, so you can pick up the next task and start its branch without leaving the app.
+
+<video
+  controls
+  src="/showcase/jira/integrate-jira.mp4"
+  poster="/showcase/jira/jira-issues.png"
+  autoPlay
+  muted
+  loop
+  playsInline
+  preload="metadata"
+  disablePictureInPicture
+  aria-label="Connect Jira, browse assigned issues, and start a branch from an issue in Commit+"
+  style={{
+    width: "100%",
+    borderRadius: "8px",
+    display: "block",
+    backgroundColor: "#f3f4f6",
+  }}
+></video>
+
+## Connect a Jira Cloud site
+
+1. Sign in to Commit+.
+2. Open **Settings → Integrations** and find **Jira**.
+3. Click **Connect Jira…**.
+4. Enter your site (for example `your-site.atlassian.net`), your Atlassian account email, and an API token. Use **Create an API token…** to open the Atlassian token page.
+5. Commit+ checks the token with Jira before saving the connection.
+
+Only Jira Cloud sites are supported. Create a Jira API token in your Atlassian account; a Bitbucket API token does not include Jira access.
+
+The API token is stored only in this Mac's Keychain and is never synced. Use **Reconnect…** to replace it, or **Remove…** to delete the site and token from this Mac. Removing the connection does not revoke the token at Atlassian; revoke it from your Atlassian account if you no longer need it.
+
+## Browse your issues
+
+Select **Jira** in the sidebar's Workspace section. The list shows issues assigned to you, most recently updated first. If the item is hidden, turn it on from the Workspace visibility options.
+
+- **Search** by issue key or summary. A full key such as `PROJ-123` matches that issue exactly.
+- **Sprint** — choose **Open Sprints**, **Backlog**, **Any Sprint**, or a specific sprint.
+- **Status**, **Project**, and **Type** filters narrow the list further. Use **Reset Filters** to clear them.
+- Click **Refresh** to reload issues from Jira.
+
+![Jira screen in Commit+ with sprint, status, project, and type filters, the assigned issue list, and an issue's details panel with Start Feature, Open in Jira, and Copy Key actions](/showcase/jira/jira-issues.png)
+
+Select an issue to open its details panel. From the panel or the row's context menu you can **Open in Jira**, **Copy Key**, or **Copy Key and Summary**.
+
+## Start a branch from an issue
+
+Click the branch action in the details panel, or use **Create Branch** in the issue's context menu. Commit+ suggests a branch name made from the issue key and summary, such as `PROJ-123-fix-login-crash`.
+
+When Git Flow is set up for the repository, the suggested action starts a Git Flow topic: **Start Bugfix…** for Bug and Defect issues, and **Start Feature…** for other types. Use **Other Branch Types** to start a feature, bugfix, or hotfix topic, or a plain **New Branch…** instead. Release topics are not offered because they are named after versions. Without Git Flow, the action creates a plain branch.
+
+## Reconnect
+
+If Jira stops accepting the saved token, the Jira screen shows **Reconnect Jira**. Click **Open Jira Settings…** and choose **Reconnect…** to enter a new token.
+
+## Access
+
+Jira issues are a Commit+ Pro feature.

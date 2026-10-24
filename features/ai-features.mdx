@@ -1,9 +1,9 @@
 ---
 title: "AI assistance"
-description: "Generate commit messages, review changes, explain commits, and resolve conflicts with Apple Intelligence on-device or your own cloud-provider API key."
+description: "Generate commit messages, review changes, explain commits, and resolve conflicts with Apple Intelligence on-device, your own cloud-provider API key, or a ChatGPT or GitHub Copilot plan."
 ---
 
-Commit+ uses focused Git context to generate commit messages, review working-tree changes, explain commits, and resolve text conflicts. Choose an on-device model with Apple Intelligence, or bring your own API key for a supported cloud provider.
+Commit+ uses focused Git context to generate commit messages, review working-tree changes, explain commits, and resolve text conflicts. Choose an on-device model with Apple Intelligence, bring your own API key for a supported cloud provider, or sign in with a ChatGPT or GitHub Copilot plan.
 
 <CardGroup cols={2}>
   <Card title="Apple Intelligence" icon="apple" badge="On-device">
@@ -32,6 +32,18 @@ Commit+ uses focused Git context to generate commit messages, review working-tre
 
   <Card title="OpenRouter" icon="cloud" badge="BYOK">
     Use OpenRouter's Auto Router, or configure another OpenRouter model, with an API key stored in your Mac's Keychain.
+  </Card>
+
+  <Card title="ChatGPT" icon="user" badge="Account">
+    Sign in with a ChatGPT Plus or Pro plan instead of an API key.
+  </Card>
+
+  <Card title="ChatGPT (Codex)" icon="user" badge="Unofficial">
+    Sign in with any ChatGPT account, including Free, to use its Codex usage.
+  </Card>
+
+  <Card title="GitHub Copilot" icon="github" badge="Account">
+    Sign in with GitHub to use your Copilot plan, including Copilot Free.
   </Card>
 </CardGroup>
 
@@ -72,6 +84,16 @@ AI conflict resolution supports UTF-8 text files containing Git conflict markers
 
 Open **Settings → AI Providers** and click **Add Provider…**. Choose OpenAI, Gemini, Claude, DeepSeek, Groq, or OpenRouter, enter the provider API key, pick a suggested model or choose **Other…** to enter any model ID the provider supports, then click **Save**. Use **Edit…** or **Remove…** on a configured provider to change its key or model. Return to the repository and select the configured provider.
 
+### Sign in with a ChatGPT or Copilot plan
+
+ChatGPT, ChatGPT (Codex), and GitHub Copilot connect to an account you already have instead of an API key. Add them from **Settings → AI Providers** the same way, then sign in:
+
+- **ChatGPT** — Click **Continue with ChatGPT** and finish signing in in your browser. It uses your ChatGPT Plus or Pro plan. If the wrong browser profile opens, use **Copy Link** and open the link in the right one. When you sign in again, Commit+ offers to continue with the previously registered account or **Use Another Account**.
+- **ChatGPT (Codex)** — Works with any ChatGPT account, including Free, and uses its Codex usage. This connection signs in through the Codex CLI's client and identifies its requests as the Codex CLI. OpenAI does not support this interface, so it is labeled **Unofficial**: it may stop working at any time, and you must confirm **I understand the risks** before connecting.
+- **GitHub Copilot** — Click **Sign In with GitHub**, enter the displayed code on GitHub, then return to Commit+. The model list shows the chat models your Copilot plan includes; **Auto** lets GitHub choose. Commit+ downloads GitHub's Copilot language server on first use. The language server sends usage telemetry to GitHub unless you turn off **Send usage telemetry to GitHub** in the provider's privacy settings.
+
+Sign-ins are stored in this Mac's Keychain. Use **Disconnect…** to sign out. Requests count against the usage and limits of your ChatGPT or Copilot plan.
+
 ### Thinking
 
 The **Thinking** toggle in **Settings → AI Providers** lets models that support reasoning think before answering. It applies to every cloud provider you configure; Apple Intelligence and Commit+ AI are not affected. Thinking is off by default. When it is off, Commit+ disables thinking where the model allows it, or uses the lowest reasoning level on models that always think. Responses with thinking on take longer and use more tokens.
@@ -92,4 +114,4 @@ With Apple Intelligence selected, commit context is processed on the Mac and is 
 
 ## Access
 
-AI commit-message generation, Repository AI, AI conflict resolution, and BYOK configuration are Commit+ Pro features. Sign in so the app can check your plan before using them. Provider selection, model preferences, and API keys remain local to the Mac.
+AI commit-message generation, Repository AI, AI conflict resolution, BYOK configuration, and ChatGPT sign-in are Commit+ Pro features. Sign in so the app can check your plan before using them. Provider selection, model preferences, and API keys remain local to the Mac.

@@ -7,8 +7,8 @@ Commit+ Pro supports GitHub Enterprise Server and GitLab Self-Managed alongside 
 
 ## Connect your server
 
-1. Open **Settings → Account** and find **Git Provider Accounts**.
-2. Click **Add**, then select **GitHub** or **GitLab**.
+1. Open **Settings → Git** and find **Providers**.
+2. Click **Add Account…**, then select **GitHub** or **GitLab**.
 3. Enable **Self-hosted server (Pro)**.
 4. Enter the server's HTTPS URL, including a custom port or installation subpath when required.
 5. Keep **HTTPS** selected, enter a personal access token, then click **Connect Account**.
@@ -31,7 +31,7 @@ The server URL must use HTTPS. For example:
 - GitLab Self-Managed: `https://gitlab.company.com`
 - GitLab with a custom port or subpath: `https://source.company.com:8443/gitlab`
 
-Commit+ validates the token against the server's user API before saving the account. Public GitHub and GitLab accounts continue to use their existing OAuth connection flow; self-hosted accounts use personal access tokens.
+Commit+ validates the token against the server's user API before saving the account. Public GitHub.com and GitLab.com accounts can connect through the browser with **OAuth** or with a **Personal Access Token**; self-hosted accounts use personal access tokens. Azure Repos accounts connect with a personal access token for each Azure DevOps organization.
 
 ## Personal access token permissions
 

@@ -43,6 +43,7 @@
               "features/prevent-potential-conflicts",
               "features/conflict-resolution",
               "features/pull-requests",
+              "features/jira",
               "features/cli"
             ]
           },
@@ -68,6 +69,7 @@
             "group": "Releases",
             "pages": [
               "changelog/overview",
+              "changelog/v1.1.21",
               "changelog/v1.1.20",
               "changelog/v1.1.19"
             ]
