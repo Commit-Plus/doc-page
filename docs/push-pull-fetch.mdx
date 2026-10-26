@@ -49,4 +49,14 @@ After confirming a push or fetch, you can keep browsing the repository while it 
 
 Successful actions disappear. Failed actions remain with a summary: choose **View** for the full error or **Dismiss** to remove the entry. Automatic fetch appears briefly in this panel and backs off after failures. Pull and other operations that change the working tree may still block interaction while they run.
 
-Remote branch deletion also uses this panel. A local branch can disappear before its remote deletion finishes; check Background Activity for remote failures.
+Branch deletion from the **Delete Branches** sheet also runs in this panel, so the window stays usable. Local branches are deleted first, then their matching and directly selected remote branches. A local branch can disappear before its remote deletion finishes; check Background Activity for local and remote failures.
+
+## When a connected account is rejected
+
+If a remote rejects your connected GitHub, GitLab, or other provider account over HTTPS, for example because the account cannot access a private repository, Commit+ retries the operation once with your own Git credential helpers, such as the GitHub CLI or macOS Keychain. Turn this off with **Fall back to Git credential helpers** in **Settings → Git**.
+
+<Warning>
+The fallback uses whichever account your Git credential helpers are signed in to. Pushes and other remote actions may then run as a different user than your connected Commit+ account.
+</Warning>
+
+If both attempts fail, the error explains what was tried. For GitHub organization repositories, the organization may restrict third-party apps: open GitHub **Settings → Applications → Authorized OAuth Apps → Commit+** and grant or request access for the organization.
