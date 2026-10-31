@@ -1,16 +1,28 @@
 ---
 title: "Installation"
-description: "Build and run Commit+ from source on macOS."
+description: "Install Commit+ with Homebrew, download a release, or build it from source on macOS."
 ---
 
-You can download Commit+ from GitHub Releases or build it from source with Xcode.
+You can install Commit+ with Homebrew, download it from GitHub Releases, or build it from source with Xcode.
+
+## Install with Homebrew
+
+```bash
+brew tap commit-plus/tap
+brew trust --tap commit-plus/tap
+brew install --cask commit-plus
+```
+
+Recent Homebrew versions require `brew trust` before loading casks from third-party taps. Skip that line if your Homebrew does not have the command.
+
+Commit+ updates itself in the app, so a plain `brew upgrade` skips it. To upgrade through Homebrew anyway, run `brew upgrade --cask --greedy commit-plus`.
 
 ## Download a release
 
 Use the latest release from GitHub:
 
 ```bash
-open https://github.com/Tranthanh98/macgit/releases/latest
+open https://github.com/Commit-Plus/commit-plus/releases/latest
 ```
 
 Direct distribution builds use Sparkle for app updates outside the Mac App Store.

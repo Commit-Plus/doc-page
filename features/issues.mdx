@@ -1,0 +1,61 @@
+---
+title: "Hosted issues"
+description: "Browse, search, and filter GitHub, GitLab, Bitbucket, and Azure Boards issues next to your repository, create issues, comment, close or reopen them, and start a branch from an issue."
+---
+
+Commit+ shows the issue tracker of your repository's hosting provider in the sidebar, so you can find the issue you are working on, discuss it, and start its branch without switching to the browser.
+
+## Supported trackers
+
+| Sidebar row | Provider |
+| --- | --- |
+| **GitHub Issues** | GitHub.com and GitHub Enterprise Server |
+| **GitLab Issues** | GitLab.com and self-managed GitLab |
+| **Bitbucket Issues** | Bitbucket Cloud |
+| **Azure Boards** | Azure DevOps Services work items |
+
+The row appears in the sidebar's **ISSUES** section when one of the repository's remotes is on a supported provider. Jira, if connected, appears in the same section. Turn the whole section on or off with **Show Issues** in **Settings → General** or from the sidebar's context menu.
+
+Bitbucket Data Center and Azure DevOps Server (on-premises) are not supported.
+
+## Connect an account
+
+Commit+ uses the Git provider account you already connected for the remote's host. If no account is connected, the issues screen shows **Connect…**; if the saved account no longer works, it shows **Reconnect**. Both open your provider accounts.
+
+Some trackers need extra access:
+
+- **GitHub** — For an organization's repository, the organization must grant Commit+ access. Use **Manage Organization Access…** on the issues screen, or **Grant Organization Access on GitHub** in the account sheet.
+- **Bitbucket** — The repository's issue tracker must be turned on. The API token needs the `read:issue:bitbucket` and `write:issue:bitbucket` scopes, and you must enter your **Atlassian Email** in the account sheet. The email stays on this Mac with the token.
+- **Azure Boards** — The personal access token needs the **Work Items** scope.
+
+When the tracker is turned off or the account lacks access, the screen explains what is needed instead of showing an empty list.
+
+## Browse issues
+
+Select the tracker row in the **ISSUES** section. The list shows open issues by default; Azure Boards shows work items from the repository's project.
+
+- **Search** by title or number.
+- **State** — Open, Closed, or All.
+- **Show** — All, Assigned to Me, or Created by Me.
+- **Remote** — appears when more than one remote has a supported tracker, for example a fork with an `upstream` remote.
+- **Reset Filters** clears the filters, and **Refresh** reloads the list.
+
+Commit+ remembers the remote and filters for each repository.
+
+Select an issue to open its details: description, labels or tags, author, assignees, and comments. From the details panel or the row's context menu you can **Open in Browser**, **Copy Number**, or **Copy Reference and Title**.
+
+## Create, comment, close, and reopen
+
+- Click **New Issue…** to create an issue with a title and a Markdown description. On Azure Boards, also choose the work item type.
+- Type in **Add a comment** at the bottom of the details panel and click **Comment**.
+- Use **Close Issue** or **Reopen Issue** in the details panel's actions.
+
+Each change is sent with your connected account and refreshes the list and details when it succeeds. Commit+ does not edit titles, descriptions, labels, assignees, or milestones, and does not delete issues.
+
+## Start a branch from an issue
+
+Use **Create Branch…** in the details panel or the row's context menu. Commit+ suggests a name made from the issue number and title, such as `42-fix-login-crash`. When Git Flow is set up for the repository, you can start a Git Flow topic instead, as with [Jira issues](/features/jira#start-a-branch-from-an-issue).
+
+## Access
+
+Hosted issues are free for public repositories. Commit+ Pro is required for private repositories.
