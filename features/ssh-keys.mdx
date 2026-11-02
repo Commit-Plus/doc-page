@@ -1,0 +1,38 @@
+---
+title: "SSH keys"
+description: "List, generate, and copy SSH keys, and add a passphrase-protected key to ssh-agent and the macOS Keychain from Commit+."
+---
+
+Commit+ can manage the SSH keys that Git uses for SSH remotes such as `git@github.com:owner/repo.git`. Generate a key for this Mac, copy its public key to your Git provider, and load a passphrase-protected key into ssh-agent without opening Terminal.
+
+## Open SSH key management
+
+Choose **Commit+ → Configure SSH Keys…** from the menu bar, or open **Settings → Git**, find **SSH Keys**, and click **Configure SSH Keys…**.
+
+The window lists the key pairs in `~/.ssh`. Select a key to see its type, SHA256 fingerprint, and public key. Click **Reload Keys** after adding or removing key files outside Commit+.
+
+## Add a key to your Git provider
+
+1. Select an existing key, or generate a new one.
+2. Click **Copy Public Key**.
+3. Paste the public key into the SSH keys section of your GitHub, GitLab, Bitbucket, or other provider account.
+
+Use **Show in Finder** to reveal the key files.
+
+## Generate a key
+
+1. Click **Generate Key** (**+**).
+2. Choose a **Type**: **Ed25519 — Recommended** or **RSA 4096**. Use RSA only when a server does not accept Ed25519 keys.
+3. Enter a **File Name**, such as `id_ed25519`. Commit+ suggests a name that is not already used.
+4. Optionally enter a **Comment**, usually your email address, and a **Passphrase**.
+5. Click **Generate**.
+
+Commit+ creates the key with the system `ssh-keygen` and saves it in `~/.ssh`. It never overwrites an existing key with the same name. When you set a passphrase, Commit+ also loads the key into ssh-agent and saves the passphrase in the macOS Keychain.
+
+## Add an existing key to the Keychain
+
+If Git asks for a key's passphrase in Terminal or fails because it cannot prompt, select the key and click **Add to Keychain…**. Enter the passphrase, or leave it empty for a key without one, then click **Add**. Commit+ runs `ssh-add --apple-use-keychain` so Git can use the key without a prompt.
+
+## How Git chooses a key
+
+Git uses SSH keys through the system ssh-agent and your `~/.ssh/config`. Commit+ does not change `~/.ssh/config`; if you use several keys for the same host, choose the key for each host there. A connected Git provider account that selects its own SSH key uses that key instead.
