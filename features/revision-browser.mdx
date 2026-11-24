@@ -36,6 +36,28 @@ The header shows the resolved commit SHA and subject. Paths changed by that comm
   exact value for a review, issue, or terminal command.
 </Tip>
 
+## Browse a commit's files in History
+
+You can also browse a commit's files without opening another window. Select a commit in **History**, then use the tabs at the top of the details panel:
+
+- **Commit** shows the full message, author, refs, and parent commits. Click a parent to select it in the list.
+- **Changes** shows the files the commit changed and their diffs.
+- **File Tree** shows the whole repository at that commit, with the same preview as Revision Browser.
+
+Click **Open in New Window** in the tab bar to open the commit in Revision Browser. Click the panel button next to it to collapse the details down to the tab bar. Click it again, or click any tab, to expand it.
+
+## File actions at a revision
+
+Control-click a file in a commit's **Changes** list, in the **File Tree** tab, or in Revision Browser to open these actions:
+
+- **Blame…** opens a window showing the commit that last changed each line. Use the arrow buttons or the revision menu to step through older and newer versions of the file.
+- **History…** opens a window listing up to 1,000 commits that changed the file, starting from that revision, and follows renames. Select a commit to see the file's diff. Control-click it to blame or save the file at that commit.
+- **Save As…** saves the file's content from that revision to a location you choose.
+- **Show in File Tree** selects the file in the **File Tree** tab. This action is available only in the **Changes** list.
+- **Open**, **Show in Finder**, and **Copy Path** work with the file in your working copy. **Open** and **Show in Finder** are available only when the file still exists there.
+
+**Blame…** and **Save As…** are unavailable when the file was deleted at that revision.
+
 ## Preview historical files
 
 Commit+ reads file content directly from Git objects. It does not create a temporary checkout.
